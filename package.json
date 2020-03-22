@@ -35,9 +35,7 @@
   },
   "scripts": {
     "build": "babel src --out-dir dist",
-    "prepare": "cross-env NODE_ENV=production npm run build",
-    "watch": "babel -w src --out-dir dist",
-    "publish": "babel src --out-dir dist"
+    "watch": "babel -w src --out-dir dist"
   },
   "engines": {
     "node": ">=10.13.0"
