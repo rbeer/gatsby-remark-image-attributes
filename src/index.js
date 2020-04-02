@@ -52,11 +52,14 @@ const createImgMarkup = ({ attributes, url, alt }) => `
   `;
 
 const amendImgMarkup = ({ attributes, value }) => {
-  const $fullMarkup = $.load(`<span style="display:block">${value}</span>`, {
-    xmlMode: true
-  });
-  $fullMarkup('img').attr({ style: createStyle(attributes) });
-  console.log($fullMarkup.html());
+  const $fullMarkup = $.load(
+    `<span style="display:block; ${createStyle(attributes)}">${value}</span>`,
+    {
+      xmlMode: true
+    }
+  );
+
+  $fullMarkup('img').attr({ style: 'max-width: 100%; max-height: 100%' });
   return $fullMarkup.html();
 };
 
@@ -88,10 +91,10 @@ module.exports = ({ markdownAST, reporter }, options) => {
     ),
     new Promise((resolve) =>
       resolve(
-        gatsbyRemarkImagesHtml.map((imgNode) => {
-          const amended = amendImgMarkup(imgNode);
-          imgNode.value = amended;
-          return imgNode;
+        gatsbyRemarkImagesHtml.map((imageNode) => {
+          const amended = amendImgMarkup(imageNode);
+          imageNode.value = amended;
+          return imageNode;
         })
       )
     )
