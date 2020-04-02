@@ -43,7 +43,7 @@ plugins: [
 Now you can add attribute declarations inside the parantheses of images, after the URL:
 
 ```md
-![satisfied](https://foomoji.com/satisfied.png width=32px;height=32px)
+![satisfied](https://foomoji.com/satisfied.png#width=32px;height=32px)
 ```
 
 The resulting HTML will be:
@@ -94,7 +94,7 @@ plugins: [
 so you then can use them as attributes on an image
 
 ```md
-![happy](https://foomoji.com/happy.png position=absolute;top=20px;left=10px)
+![happy](https://foomoji.com/happy.png#position=absolute;top=20px;left=10px)
 ```
 
 producing
@@ -140,7 +140,7 @@ plugins: [
 and
 
 ```md
-![party](./images/emojis/party.png box-shadow=2px 2px 6px 0px;float=right)
+![party](./images/emojis/party.png#box-shadow=2px 2px 6px 0px;float=right)
 ```
 
 generates
