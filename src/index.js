@@ -1,5 +1,4 @@
 const visit = require('unist-util-visit');
-const isArray = require('lodash.isarray');
 const isString = require('lodash.isstring');
 const uniq = require('lodash.uniq');
 const $ = require('cheerio');
@@ -16,7 +15,7 @@ let styleAttributes = [
 
 const applyOptions = ({ styleAttributes: _styleAttributes }, reporter) => {
   if (_styleAttributes) {
-    if (!isArray(_styleAttributes)) {
+    if (!Array.isArray(_styleAttributes)) {
       reporter.warn('Option styleAttributes must be an Array of strings.');
     }
     styleAttributes = uniq(
