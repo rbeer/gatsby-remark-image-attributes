@@ -1,7 +1,6 @@
 const visit = require('unist-util-visit');
 const isString = require('lodash.isstring');
 const uniq = require('lodash.uniq');
-const $ = require('cheerio');
 
 let styleAttributes = [
   'width',
@@ -42,19 +41,13 @@ const createStyle = (attributes) => {
   }, '');
 };
 
-const createImgMarkup = ({ attributes, url, alt }) => `
-  <img
-    src="${url}"
-    style="${createStyle(attributes) || 'width: 100%;'}"
-    alt="${alt}"
-  />
-  `;
+const createImgMarkup = ({ attributes, url, alt }) =>
+  `<img src="${url}" style="${
+    createStyle(attributes) || 'width: 100%;'
+  }" alt="${alt}" />`;
 
-const wrapImgMarkup = ({ attributes, value }) => {
-  return `<span style="display:block; ${createStyle(
-    attributes
-  )}">${value}</span>`;
-};
+const wrapImgMarkup = ({ attributes, value }) =>
+  `<span style="display:block; ${createStyle(attributes)}">${value}</span>`;
 
 module.exports = ({ markdownAST, reporter }, options) => {
   applyOptions(options, reporter);
@@ -85,8 +78,8 @@ module.exports = ({ markdownAST, reporter }, options) => {
     new Promise((resolve) =>
       resolve(
         gatsbyRemarkImagesHtml.map((imageNode) => {
-          const amended = wrapImgMarkup(imageNode);
-          imageNode.value = amended;
+          const wrapped = wrapImgMarkup(imageNode);
+          imageNode.value = wrapped;
           return imageNode;
         })
       )
