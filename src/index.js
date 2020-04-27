@@ -26,7 +26,7 @@ const _options = {
 const applyOptions = ({ styleAttributes, dataAttributes }, reporter) => {
   if (styleAttributes) {
     if (Array.isArray(styleAttributes)) {
-      styleAttributes = uniq(
+      _options.styleAttributes = uniq(
         _options.styleAttributes.concat(styleAttributes.filter(isString))
       );
     } else {

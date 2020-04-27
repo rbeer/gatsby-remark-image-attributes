@@ -1,8 +1,10 @@
 # gatsby-remark-image-attributes
 
-Creates HTML image markup with style attributes. Those attributes are expected on the markdownAST 'image' node, as parsed by [remark-image-attributes](https://github.com/rbeer/remark-image-attributes.git).
+Creates HTML image markup with style and data-* attributes from 'image' nodes with attributes, as parsed by [remark-image-attributes](https://github.com/rbeer/remark-image-attributes.git).
 
-The plugin plays nicely with other image-processing plugins like [gatsby-remark-images](https://github.com/gatsbyjs/gatsby/master/packages/gatsby-remark-images/), amending their generated markup by wrapping it in a container, styled with your attributes.
+The plugin plays nicely with other image-processing plugins like [gatsby-remark-images](https://github.com/gatsbyjs/gatsby/master/packages/gatsby-remark-images/), amending their generated markup.
+
+![markdown_html](./sample.png)
 
 ## Installation
 
