@@ -151,7 +151,7 @@ _sample.md_:
 ```md
 ![happy](https://foomoji.com/happy.png#tool-tip=Fancy image with tooltip;position=absolute;height=100px)
 ```
-Where `height` is recognized as `styleAttribute` - because it is one of the defaults -, `tool-tip` _and_ `position` are not:
+Where `height` is recognized as `styleAttribute` - because it is one of the defaults -, `tool-tip` _and_ `position` are not and thus applied as `dataAttributes`:
 
 ```html
 <img

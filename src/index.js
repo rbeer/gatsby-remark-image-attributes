@@ -85,7 +85,10 @@ const wrapImgMarkup = ({ attributes, value }) => {
   const { styleAttributes, dataAttributes } = categorizeAttributes(attributes);
   return `<span style="display:block; ${createStyle(
     styleAttributes
-  )}" ${createDataAttributes(dataAttributes)}>${value}</span>`;
+  )}">${value.replace(
+    /<img[^>]*/,
+    `$& ${createDataAttributes(dataAttributes)}`
+  )}</span>`;
 };
 
 module.exports = ({ markdownAST, reporter }, options) => {
