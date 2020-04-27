@@ -2,25 +2,41 @@ const visit = require('unist-util-visit');
 const isString = require('lodash.isstring');
 const uniq = require('lodash.uniq');
 
-let styleAttributes = [
-  'width',
-  'height',
-  'margin-left',
-  'margin-right',
-  'margin-top',
-  'margin-bottom',
-  'float'
-];
+const logMsg = (strings, ...expressions) => {
+  const message = strings.reduce(
+    (msg, str, idx) => `${msg}${str}${expressions[idx] || ''}`,
+    ''
+  );
+  return `[gatsby-remark-image-attributes] ${message}`;
+};
 
-const applyOptions = ({ styleAttributes: _styleAttributes }, reporter) => {
-  if (_styleAttributes) {
-    if (!Array.isArray(_styleAttributes)) {
-      reporter.warn('Option styleAttributes must be an Array of strings.');
+const _options = {
+  styleAttributes: [
+    'width',
+    'height',
+    'margin-left',
+    'margin-right',
+    'margin-top',
+    'margin-bottom',
+    'float'
+  ],
+  dataAttributes: false
+};
+
+const applyOptions = ({ styleAttributes, dataAttributes }, reporter) => {
+  if (styleAttributes) {
+    if (Array.isArray(styleAttributes)) {
+      styleAttributes = uniq(
+        _options.styleAttributes.concat(styleAttributes.filter(isString))
+      );
+    } else {
+      reporter.warn(
+        logMsg`Option styleAttributes must be an Array of strings.`
+      );
     }
-    styleAttributes = uniq(
-      styleAttributes.concat(_styleAttributes.filter(isString))
-    );
   }
+
+  _options.dataAttributes = dataAttributes === true;
 };
 
 const isGatsbyRemarkImagesHtml = (node) => {
@@ -31,30 +47,55 @@ const isGatsbyRemarkImagesHtml = (node) => {
   return hasAttributes && hasUrl && isImage;
 };
 
-const createStyle = (attributes) => {
-  const attributeKeys = Object.keys(attributes);
-  return attributeKeys.reduce((styles, attribute) => {
-    if (!styleAttributes.includes(attribute)) {
-      return styles;
+const categorizeAttributes = (attributes) => {
+  const styleAttributes = {};
+  const dataAttributes = {};
+
+  for (const attributeKey in attributes) {
+    if (_options.styleAttributes.includes(attributeKey)) {
+      styleAttributes[attributeKey] = attributes[attributeKey];
+    } else if (_options.dataAttributes) {
+      dataAttributes[attributeKey] = attributes[attributeKey];
     }
-    return `${styles}${attribute}: ${attributes[attribute]};`;
-  }, '');
+  }
+
+  return { styleAttributes, dataAttributes };
 };
 
-const createImgMarkup = ({ attributes, url, alt }) =>
-  `<img src="${url}" style="${
-    createStyle(attributes) || 'width: 100%;'
-  }" alt="${alt}" />`;
+const createStyle = (styleAttributes) =>
+  Object.keys(styleAttributes).reduce(
+    (style, key) => `${style}${key}: ${styleAttributes[key]};`,
+    ''
+  );
 
-const wrapImgMarkup = ({ attributes, value }) =>
-  `<span style="display:block; ${createStyle(attributes)}">${value}</span>`;
+const createDataAttributes = (dataAttributes) =>
+  Object.keys(dataAttributes).reduce(
+    (data, key) => `${data} data-${key}="${dataAttributes[key]}"`,
+    ''
+  );
+
+const createImgMarkup = ({ attributes, url, alt }) => {
+  const { styleAttributes, dataAttributes } = categorizeAttributes(attributes);
+  return `<img src="${url}" style="${
+    createStyle(styleAttributes) || 'width: 100%;'
+  }" alt="${alt}" ${createDataAttributes(dataAttributes)} />`;
+};
+
+const wrapImgMarkup = ({ attributes, value }) => {
+  const { styleAttributes, dataAttributes } = categorizeAttributes(attributes);
+  return `<span style="display:block; ${createStyle(
+    styleAttributes
+  )}" ${createDataAttributes(dataAttributes)}>${value}</span>`;
+};
 
 module.exports = ({ markdownAST, reporter }, options) => {
   applyOptions(options, reporter);
 
   const gatsbyRemarkImagesHtml = [];
   visit(markdownAST, 'html', (node) => {
-    if (isGatsbyRemarkImagesHtml(node)) gatsbyRemarkImagesHtml.push(node);
+    if (isGatsbyRemarkImagesHtml(node)) {
+      gatsbyRemarkImagesHtml.push(node);
+    }
   });
 
   const images = [];

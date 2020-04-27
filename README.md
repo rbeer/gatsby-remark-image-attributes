@@ -28,10 +28,21 @@ plugins: [
         {
           resolve: `gatsby-remark-image-attributes`,
           options: {
-            // Optional, any valid CSS style name
+
+            // ?Array<String>
             //   Any names declared here are added
-            //   to the default set of attributes
+            //   to the default set of attributes,
+            //   which the plugin will use to style
+            //   the image.
             styleAttributes: [`display`, `position`, `border`]
+
+            // ?Boolean
+            //   If true, all attributes that
+            //   aren't styleAttributes, will be
+            //   added as data-* attributes to the
+            //   image.
+            dataAttributes: true
+
           }
         }
       ]
@@ -43,7 +54,7 @@ plugins: [
 Now you can add attribute declarations as hash value to the image URL:
 
 ```md
-![satisfied](https://foomoji.com/satisfied.png#width=32px;height=32pxi;position=absolute;)
+![satisfied](https://foomoji.com/satisfied.png#lightbox=true;width=32px;height=32pxi;position=absolute;)
 ```
 
 The resulting HTML will be:
@@ -53,6 +64,7 @@ The resulting HTML will be:
   src="https://foomoji.com/satisfied.png"
   alt="satisfied"
   style="width: 32px; height:32px; position: absolute;"
+  data-lightbox="true"
 />
 ```
 
@@ -60,7 +72,8 @@ The resulting HTML will be:
 
 |      Name       |                                         Default                                          | Description                                                                                                                               |
 | :-------------: | :--------------------------------------------------------------------------------------: | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| styleAttributes | `width`, `height`, `margin-left`, `margin-right`, `margin-top`, `margin-bottom`, `float` | Array with any valid CSS-style name you want to put on the `style` attribute of an image. See [styleAttributes example](#styleattributes) |
+| styleAttributes | `['width', 'height', 'margin-left', 'margin-right', 'margin-top', 'margin-bottom', 'float']` | Array with any valid CSS style name you want to apply to an image. This option adds to the defaults, i.e. it can be omitted, when only the defaults are needed. See [styleAttributes example](#styleattributes) |
+| dataAttributes  | `false` | Array with any valid CSS-style name you want to put on the `style` attribute of an image. See [dataAttributes](#dataattributes) |
 
 ## Examples
 
@@ -68,7 +81,7 @@ The resulting HTML will be:
 
 You can use the `styleAttributes` option to define CSS-style names to be recognized and applied by the plugin.
 
-To be, for example, able to absolutely position images, declare the attributes `position`, `top` and `left` in your
+To absolutely position images, declare the attributes `position`, `top` and `left` in your
 
 _gatsby-config.js_:
 
@@ -104,6 +117,47 @@ producing
   src="https://foomoji.com/happy.png"
   alt="happy"
   style="position: absolute; top: 20px; left: 10px;"
+/>
+```
+
+### dataAttributes
+
+When `options.dataAttributes` is `true`, the plugin will add all attributes whose key isn't in `options.styleAttributes` as data-* attribute to the image.
+
+_gatsby-config.js_:
+
+```js
+plugins: [
+  {
+    resolve: `gatsby-transformer-remark`,
+    options: {
+      plugins: [
+        `remark-image-attributes`, // the markdown parser
+        {
+          resolve: `gatsby-remark-image-attributes`,
+          options: {
+            dataAttributes: true
+          }
+        }
+      ]
+    }
+  }
+];
+```
+_sample.md_:
+
+```md
+![happy](https://foomoji.com/happy.png#tool-tip=Fancy image with tooltip;position=absolute;height=100px)
+```
+Where `height` is recognized as `styleAttribute` - because it is one of the defaults -, `tool-tip` _and_ `position` are not:
+
+```html
+<img
+  src="https://foomoji.com/happy.png"
+  alt="happy"
+  style="height: 100px;"
+  data-tool-tip="Fancy image with tooltip"
+  data-position="absolute"
 />
 ```
 

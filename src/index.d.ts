@@ -1,12 +1,5 @@
 export interface ImageAttributes {
-  zoom: boolean;
-  width: number | string;
-  height: number | string;
-  "margin-left": string;
-  "margin-right": string;
-  "margin-top": string;
-  "margin-bottom": string;
-  float: "left" | "right";
+  [string]: any;
 }
 
 export type AmendImgMarkupParameters = {
@@ -23,5 +16,7 @@ export type CreateImgMarkupParameters = {
 export declare function amendImgMarkup(p: AmendImgMarkupParameters): string;
 export declare function createImgMarkup(p: CreateImgMarkupParameters): string;
 export declare function createStyle(attributes: ImageAttributes): string;
+export declare function createDataAttributes(
+  attributes: ImageAttributes
+): string;
 export declare function isGatsbyRemarkImagesHtml(node: any): boolean;
-
