@@ -36,7 +36,7 @@ plugins: [
             //   to the default set of attributes,
             //   which the plugin will use to style
             //   the image.
-            styleAttributes: [`display`, `position`, `border`]
+            styleAttributes: [`display`, `position`, `border`],
 
             // ?Boolean
             //   If true, all attributes that
