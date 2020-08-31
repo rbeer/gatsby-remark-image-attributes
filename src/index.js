@@ -1,6 +1,7 @@
 const visit = require('unist-util-visit');
 const isString = require('lodash.isstring');
 const uniq = require('lodash.uniq');
+const imageAttributesParser = require('remark-image-attributes');
 
 const logMsg = (strings, ...expressions) => {
   const message = strings.reduce(
@@ -130,3 +131,5 @@ module.exports = ({ markdownAST, reporter }, options) => {
     )
   ]);
 };
+
+module.exports.setParserPlugins = () => [imageAttributesParser];
