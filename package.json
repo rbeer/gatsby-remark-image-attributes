@@ -1,18 +1,18 @@
 {
   "name": "gatsby-remark-image-attributes",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "dist/index.js",
   "author": "Raphael Beer <raphael.beer@protonmail.com>",
   "dependencies": {
-    "@babel/runtime": "^7.8.7",
+    "@babel/runtime": "^7.11.2",
     "lodash.isstring": "^4.0.1",
     "lodash.uniq": "^4.5.0",
-    "unist-util-visit": "^2.0.2"
+    "unist-util-visit": "^2.0.3"
   },
   "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.8.7",
-    "babel-preset-gatsby-package": "^0.3.0",
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.4",
+    "babel-preset-gatsby-package": "^0.3.2",
     "cross-env": "^5.2.1"
   },
   "homepage": "https://github.com/rbeer/gatsby-remark-image-attributes",
