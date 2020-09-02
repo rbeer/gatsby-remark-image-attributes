@@ -6,17 +6,17 @@ The plugin plays nicely with other image-processing plugins like [gatsby-remark-
 
 ![markdown_html](./sample.png)
 
+Try the [demo](https://remark-image-attributes.netlify.app/)!
+
 ## Installation
 
 ```bash
-npm install --save gatsby-remark-image-attributes remark-image-attributes
+npm install --save gatsby-remark-image-attributes
 ```
 
 ## How to use
 
-Add both plugins ([remark-image-attributes](https://github.com/rbeer/remark-image-attributes.git) and [gatsby-remark-image-attributes](https://github.com/rbeer/gatsby-remark-image-attributes.git)) to your
-
-_gatsby-config.js_
+Add `gatsby-remark-image-attributes` as plugin to [gatsby-transformer-remark](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-transformer-remark) in _gatsby-config.js_
 
 ```js
 plugins: [
@@ -24,16 +24,13 @@ plugins: [
     resolve: `gatsby-transformer-remark`,
     options: {
       plugins: [
-        // markdown parser for attributes on images
-        //   This is a non-optional depdendency
-        `remark-image-attributes`,
         {
           resolve: `gatsby-remark-image-attributes`,
           options: {
 
             // ?Array<String>
             //   Any names declared here are added
-            //   to the default set of attributes,
+            //   to the default set of attributes
             //   which the plugin will use to style
             //   the image.
             styleAttributes: [`display`, `position`, `border`],
@@ -53,7 +50,7 @@ plugins: [
 ],
 ```
 
-Now you can add attribute declarations as hash value to the image URL:
+Now you can add attribute declarations as hash value to an image's URL:
 
 ```md
 ![satisfied](https://foomoji.com/satisfied.png#lightbox=true;width=32px;height=32pxi;position=absolute;)
@@ -81,11 +78,9 @@ The resulting HTML will be:
 
 ### styleAttributes
 
-You can use the `styleAttributes` option to define CSS-style names to be recognized and applied by the plugin.
+You can use the `styleAttributes` option to define CSS style names to be recognized and applied by the plugin.
 
-To absolutely position images, declare the attributes `position`, `top` and `left` in your
-
-_gatsby-config.js_:
+To e.g. absolutely position images, declare the attributes `position`, `top` and `left` in your _gatsby-config.js_:
 
 ```js
 plugins: [
@@ -93,7 +88,6 @@ plugins: [
     resolve: `gatsby-transformer-remark`,
     options: {
       plugins: [
-        `remark-image-attributes`, // the markdown parser
         {
           resolve: `gatsby-remark-image-attributes`,
           options: {
@@ -134,7 +128,6 @@ plugins: [
     resolve: `gatsby-transformer-remark`,
     options: {
       plugins: [
-        `remark-image-attributes`, // the markdown parser
         {
           resolve: `gatsby-remark-image-attributes`,
           options: {
@@ -146,7 +139,7 @@ plugins: [
   }
 ];
 ```
-_sample.md_:
+_md_:
 
 ```md
 ![happy](https://foomoji.com/happy.png#tool-tip=Fancy image with tooltip;position=absolute;height=100px)
@@ -178,19 +171,22 @@ plugins: [
     options: {
       plugins: [
         {
-          resolve: "gatsby-remark-images",
+          resolve: 'gatsby-remark-images',
           options: {
-            backgroundColor: "none",
+            backgroundColor: 'none',
             disableBgImage: true
           }
         },
         {
-          resolve: "gatsby-remark-image-attributes"
+          resolve: `gatsby-remark-image-attributes`,
+          options: {
+            styleAttributes: [`box-shadow`]
+          }
         }
       ]
     }
   }
-],
+]
 ```
 
 and
@@ -217,14 +213,14 @@ generates
 
 ### use with gatsby-plugin-mdx
 
+If you want to use MDX instead of the bare remark transformer, you have to add `gatsby-remark-image-attributes` to [`options.gatsbyRemarkPlugins`](https://www.gatsbyjs.com/plugins/gatsby-plugin-mdx/#gatsby-remark-plugins) of `gatsby-plugin-mdx`.
+
+_gatsby-config.js_
 ```js
 {
       resolve: "gatsby-plugin-mdx",
       options: {
         extensions: [".mdx", ".md"],
-        remarkPlugins: [
-          require("remark-image-attributes"),
-        ],
         gatsbyRemarkPlugins: [
           {
             resolve: "gatsby-remark-copy-linked-files",
