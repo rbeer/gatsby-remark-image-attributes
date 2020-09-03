@@ -28,11 +28,14 @@ plugins: [
           resolve: `gatsby-remark-image-attributes`,
           options: {
 
-            // ?Array<String>
+            // ?Array<String> | Boolean
             //   Any names declared here are added
             //   to the default set of attributes
             //   which the plugin will use to style
             //   the image.
+            //   If this is set to true, all CSS
+            //   property names will be recognized
+            //   as styleAttribute.
             styleAttributes: [`display`, `position`, `border`],
 
             // ?Boolean
@@ -69,10 +72,10 @@ The resulting HTML will be:
 
 ## Options
 
-|      Name       |                                         Default                                          | Description                                                                                                                               |
-| :-------------: | :--------------------------------------------------------------------------------------: | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| styleAttributes | `['width', 'height', 'margin-left', 'margin-right', 'margin-top', 'margin-bottom', 'float']` | Array with any valid CSS style name you want to apply to an image. This option adds to the defaults, i.e. it can be omitted, when only the defaults are needed. See [styleAttributes example](#styleattributes) |
-| dataAttributes  | `false` | Array with any valid CSS-style name you want to put on the `style` attribute of an image. See [dataAttributes](#dataattributes) |
+|Name|Type|Default|Description|
+|:-:|:-:|:-:|-|
+| styleAttributes | Array\<String\> \| Boolean | `['width', 'height', 'margin-left', 'margin-right', 'margin-top', 'margin-bottom', 'float']` | _Array\<String\>_<br />Any valid CSS style name you want to apply to an image. This option adds to the defaults, i.e. it can be omitted when only the defaults are needed. <br /><br />-OR-<br /><br />_Boolean_<br />Add _[all](https://www.w3.org/Style/CSS/all-properties.en.html#list)_ CSS properties to styleAttributes.
+| dataAttributes  |Boolean| `false` | Add all attributes not recognized as styleAttribute as data- attribute to the image.
 
 ## Examples
 
@@ -80,7 +83,11 @@ The resulting HTML will be:
 
 You can use the `styleAttributes` option to define CSS style names to be recognized and applied by the plugin.
 
-To e.g. absolutely position images, declare the attributes `position`, `top` and `left` in your _gatsby-config.js_:
+You can set this to `true` to use [W3's official list of CSS properties](https://www.w3.org/Style/CSS/all-properties.en.html#list) (~530 names) as `styleAttributes`. Use `npm run`[`update-css-props`](https://github.com/rbeer/gatsby-remark-image-attributes/blob/master/scripts/update-css-props.js) to update it.
+
+---
+
+To add only specific properties to the defaults, declare e.g. `position`, `top` and `left` in your _gatsby-config.js_:
 
 ```js
 plugins: [

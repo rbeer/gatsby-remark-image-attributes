@@ -34,6 +34,7 @@
   },
   "scripts": {
     "build": "babel src --out-dir dist",
+    "update-css-props": "node ./scripts/update-css-props.js",
     "watch": "babel -w src --out-dir dist",
     "prepublish": "yarn build"
   },

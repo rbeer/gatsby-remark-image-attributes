@@ -3,6 +3,8 @@ const isString = require('lodash.isstring');
 const uniq = require('lodash.uniq');
 const imageAttributesParser = require('remark-image-attributes');
 
+const allCSSProperties = require('./css-props.json');
+
 const logMsg = (strings, ...expressions) => {
   const message = strings.reduce(
     (msg, str, idx) => `${msg}${str}${expressions[idx] || ''}`,
@@ -30,9 +32,11 @@ const applyOptions = ({ styleAttributes, dataAttributes }, reporter) => {
       _options.styleAttributes = uniq(
         _options.styleAttributes.concat(styleAttributes.filter(isString))
       );
+    } else if (styleAttributes === true) {
+      _options.styleAttributes = allCSSProperties;
     } else {
       reporter.warn(
-        logMsg`Option styleAttributes must be an Array of strings.`
+        logMsg`Option styleAttributes must be an Array of strings or 'true'.`
       );
     }
   }
@@ -40,7 +44,7 @@ const applyOptions = ({ styleAttributes, dataAttributes }, reporter) => {
   _options.dataAttributes = dataAttributes === true;
 };
 
-const isGatsbyRemarkImagesHtml = (node) => {
+const isGatsbyRemarkImagesHtml = node => {
   const hasAttributes = !!node.attributes;
   const hasUrl = !!node.url;
   const isImage = /<img/.test(node.value);
@@ -48,7 +52,7 @@ const isGatsbyRemarkImagesHtml = (node) => {
   return hasAttributes && hasUrl && isImage;
 };
 
-const categorizeAttributes = (attributes) => {
+const categorizeAttributes = attributes => {
   const styleAttributes = {};
   const dataAttributes = {};
 
@@ -63,13 +67,13 @@ const categorizeAttributes = (attributes) => {
   return { styleAttributes, dataAttributes };
 };
 
-const createStyle = (styleAttributes) =>
+const createStyle = styleAttributes =>
   Object.keys(styleAttributes).reduce(
     (style, key) => `${style}${key}: ${styleAttributes[key]};`,
     ''
   );
 
-const createDataAttributes = (dataAttributes) =>
+const createDataAttributes = dataAttributes =>
   Object.keys(dataAttributes).reduce(
     (data, key) => `${data} data-${key}="${dataAttributes[key]}"`,
     ''
@@ -96,14 +100,14 @@ module.exports = ({ markdownAST, reporter }, options) => {
   applyOptions(options, reporter);
 
   const gatsbyRemarkImagesHtml = [];
-  visit(markdownAST, 'html', (node) => {
+  visit(markdownAST, 'html', node => {
     if (isGatsbyRemarkImagesHtml(node)) {
       gatsbyRemarkImagesHtml.push(node);
     }
   });
 
   const images = [];
-  visit(markdownAST, 'image', (node) => {
+  visit(markdownAST, 'image', node => {
     // only process images with attributes
     if (node.attributes) {
       images.push(node);
@@ -111,18 +115,18 @@ module.exports = ({ markdownAST, reporter }, options) => {
   });
 
   return Promise.all([
-    new Promise((resolve) =>
+    new Promise(resolve =>
       resolve(
-        images.map((imageNode) => {
+        images.map(imageNode => {
           imageNode.type = 'html';
           imageNode.value = createImgMarkup(imageNode);
           return imageNode;
         })
       )
     ),
-    new Promise((resolve) =>
+    new Promise(resolve =>
       resolve(
-        gatsbyRemarkImagesHtml.map((imageNode) => {
+        gatsbyRemarkImagesHtml.map(imageNode => {
           const wrapped = wrapImgMarkup(imageNode);
           imageNode.value = wrapped;
           return imageNode;
