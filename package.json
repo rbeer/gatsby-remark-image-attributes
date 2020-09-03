@@ -7,7 +7,7 @@
     "@babel/runtime": "^7.11.2",
     "lodash.isstring": "^4.0.1",
     "lodash.uniq": "^4.5.0",
-    "remark-image-attributes": "^0.1.3",
+    "remark-image-attributes": "^0.1.4",
     "unist-util-visit": "^2.0.3"
   },
   "devDependencies": {
@@ -36,7 +36,7 @@
     "build": "babel src --out-dir dist",
     "update-css-props": "node ./scripts/update-css-props.js",
     "watch": "babel -w src --out-dir dist",
-    "prepublish": "yarn build"
+    "prepublishOnly": "yarn build && yarn update-css-props && cp ./src/css-props.json ./dist/css-props.json"
   },
   "engines": {
     "node": ">=10.13.0"
