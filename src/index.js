@@ -86,11 +86,11 @@ const createImgMarkup = ({ attributes, url, alt }) => {
   }" alt="${alt}" ${createDataAttributes(dataAttributes)} />`;
 };
 
-const wrapImgMarkup = ({ attributes, value }) => {
+const wrapImgMarkup = ({ attributes, value, inline }) => {
   const { styleAttributes, dataAttributes } = categorizeAttributes(attributes);
-  return `<span style="display:block; ${createStyle(
-    styleAttributes
-  )}">${value.replace(
+  return `<span style="display:${
+    inline ? 'inline-block' : 'block'
+  }; ${createStyle(styleAttributes)}">${value.replace(
     /<img[^>]*/,
     `$& ${createDataAttributes(dataAttributes)}`
   )}</span>`;
