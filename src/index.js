@@ -81,14 +81,14 @@ const createDataAttributes = dataAttributes =>
 
 const createImgMarkup = ({ attributes, url, alt }) => {
   const { styleAttributes, dataAttributes } = categorizeAttributes(attributes);
-  return `<img src="${url}" style="${
+  return `<img src="${url}" class="gatsby-img-attributes" style="${
     createStyle(styleAttributes) || 'width: 100%;'
   }" alt="${alt}" ${createDataAttributes(dataAttributes)} />`;
 };
 
 const wrapImgMarkup = ({ attributes, value, inline }) => {
   const { styleAttributes, dataAttributes } = categorizeAttributes(attributes);
-  return `<span style="display:${
+  return `<span class="gatsby-img-attributes" style="display:${
     inline ? 'inline-block' : 'block'
   }; ${createStyle(styleAttributes)}">${value.replace(
     /<img[^>]*/,
