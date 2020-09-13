@@ -44,7 +44,6 @@ plugins: [
             //   added as data-* attributes to the
             //   image.
             dataAttributes: true
-
           }
         }
       ]
@@ -67,6 +66,7 @@ The resulting HTML will be:
   alt="satisfied"
   style="width: 32px; height:32px; position: absolute;"
   data-lightbox="true"
+  class="gatsby-img-attributes"
 />
 ```
 
@@ -77,13 +77,18 @@ The resulting HTML will be:
 | styleAttributes | Array\<String\> \| Boolean | `['width', 'height', 'margin-left', 'margin-right', 'margin-top', 'margin-bottom', 'float']` | _Array\<String\>_<br />Any valid CSS style name you want to apply to an image. This option adds to the defaults, i.e. it can be omitted when only the defaults are needed. <br /><br />-OR-<br /><br />_Boolean_<br />Add _[all](https://www.w3.org/Style/CSS/all-properties.en.html#list)_ CSS properties to styleAttributes.
 | dataAttributes  |Boolean| `false` | Add all attributes not recognized as styleAttribute as data- attribute to the image.
 
+#### .gatsby-img-attributes
+
+Generated markup will always have a CSS class `gatsby-img-attributes`. The plugin itself does not come with any attributes for that class; you can use it freely to apply default styling to all images with attributes.
+
+
 ## Examples
 
 ### styleAttributes
 
 You can use the `styleAttributes` option to define CSS style names to be recognized and applied by the plugin.
 
-You can set this to `true` to use [W3's official list of CSS properties](https://www.w3.org/Style/CSS/all-properties.en.html#list) (~530 names) as `styleAttributes`. Use `npm run`[`update-css-props`](https://github.com/rbeer/gatsby-remark-image-attributes/blob/master/scripts/update-css-props.js) to update it.
+You can set this to `true` to use [W3's official list of CSS properties](https://www.w3.org/Style/CSS/all-properties.en.html#list) (~530 names) as `styleAttributes`.
 
 ---
 
@@ -120,6 +125,7 @@ producing
   src="https://foomoji.com/happy.png"
   alt="happy"
   style="position: absolute; top: 20px; left: 10px;"
+  class="gatsby-img-attributes"
 />
 ```
 
@@ -160,6 +166,7 @@ Where `height` is recognized as `styleAttribute` - because it is one of the defa
   style="height: 100px;"
   data-tool-tip="Fancy image with tooltip"
   data-position="absolute"
+  class="gatsby-img-attributes"
 />
 ```
 
@@ -167,7 +174,7 @@ Where `height` is recognized as `styleAttribute` - because it is one of the defa
 
 This plugin can handle already processed images (type: 'html'), as long as the node object contains an `attributes` field and the `value` an `<img />` tag.
 
-So using other plugins, like [gatsby-remark-images](https://github.com/gatsbyjs/gatsby/master/packages/gatsby-remark-images/), is possible:
+So using other image processing plugins, like [gatsby-remark-images](https://github.com/gatsbyjs/gatsby/master/packages/gatsby-remark-images/), is possible:
 
 _gatsby-config.js_
 
@@ -187,7 +194,8 @@ plugins: [
         {
           resolve: `gatsby-remark-image-attributes`,
           options: {
-            styleAttributes: [`box-shadow`]
+            styleAttributes: [`box-shadow`],
+            dataAttributes: true
           }
         }
       ]
@@ -199,13 +207,16 @@ plugins: [
 and
 
 ```md
-![party](./images/emojis/party.png#box-shadow=2px 2px 6px 0px;float=right)
+![party](./images/emojis/party.png#box-shadow=2px 2px 6px 0px;float=right;foo=bar)
 ```
 
 generates
 
 ```html
-<span style="box-shadow: 2px 2px 6px 0px; float: right;">
+<span
+  style="display:block; box-shadow: 2px 2px 6px 0px; float: right;"
+  class="gatsby-img-attributes"
+>
   <span class="gatsby-resp-image-wrapper" ...>
     <span class="gatsby-resp-image-background-image" ...></span>
     <img
@@ -213,10 +224,15 @@ generates
       alt="party"
       title="party"
       src="/static/4d415e7127c0f88799cd9f357aabc732/b7060/party.png"
+      data-foo="bar"
       ...
   /></span>
 </span>
 ```
+
+You might have noticed that `styleAttributes` and `class="gatsby-img-attributes"` have been applied to the wrapping `<span>` here, rather than the `<img>`. . See [demo#positioning](https://remark-image-attributes.netlify.app/#positioning) and this [issue comment](https://github.com/rbeer/gatsby-remark-image-attributes/issues/5#issuecomment-690301135) for why this is necessary.
+
+`dataAttributes`, on the other hand, are _always_ applied to the `<img>`.
 
 ### use with gatsby-plugin-mdx
 
