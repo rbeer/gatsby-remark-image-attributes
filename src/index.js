@@ -44,7 +44,7 @@ const applyOptions = ({ styleAttributes, dataAttributes }, reporter) => {
   _options.dataAttributes = dataAttributes === true;
 };
 
-const isGatsbyRemarkImagesHtml = node => {
+const isImageHtml = node => {
   const hasAttributes = !!node.attributes;
   const hasUrl = !!node.url;
   const isImage = /<img/.test(node.value);
@@ -67,11 +67,17 @@ const categorizeAttributes = attributes => {
   return { styleAttributes, dataAttributes };
 };
 
-const createStyle = styleAttributes =>
-  Object.keys(styleAttributes).reduce(
+const createStyle = (styleAttributes, inline) => {
+  let styleString = Object.keys(styleAttributes).reduce(
     (style, key) => `${style}${key}: ${styleAttributes[key]};`,
     ''
   );
+
+  if (inline && !styleAttributes.width && !styleAttributes.height) {
+    styleString += 'width: 100%;';
+  }
+  return styleString;
+};
 
 const createDataAttributes = dataAttributes =>
   Object.keys(dataAttributes).reduce(
@@ -79,10 +85,10 @@ const createDataAttributes = dataAttributes =>
     ''
   );
 
-const createImgMarkup = ({ attributes, url, alt }) => {
+const createImgMarkup = ({ attributes, url, alt, inline }) => {
   const { styleAttributes, dataAttributes } = categorizeAttributes(attributes);
   return `<img src="${url}" class="gatsby-img-attributes" style="${
-    createStyle(styleAttributes) || 'width: 100%;'
+    createStyle(styleAttributes, inline) || 'width: 100%;'
   }" alt="${alt}" ${createDataAttributes(dataAttributes)} />`;
 };
 
@@ -90,7 +96,7 @@ const wrapImgMarkup = ({ attributes, value, inline }) => {
   const { styleAttributes, dataAttributes } = categorizeAttributes(attributes);
   return `<span class="gatsby-img-attributes" style="display:${
     inline ? 'inline-block' : 'block'
-  }; ${createStyle(styleAttributes)}">${value.replace(
+  }; ${createStyle(styleAttributes, inline)}">${value.replace(
     /<img[^>]*/,
     `$& ${createDataAttributes(dataAttributes)}`
   )}</span>`;
@@ -99,10 +105,10 @@ const wrapImgMarkup = ({ attributes, value, inline }) => {
 module.exports = ({ markdownAST, reporter }, options) => {
   applyOptions(options, reporter);
 
-  const gatsbyRemarkImagesHtml = [];
+  const imageHtml = [];
   visit(markdownAST, 'html', node => {
-    if (isGatsbyRemarkImagesHtml(node)) {
-      gatsbyRemarkImagesHtml.push(node);
+    if (isImageHtml(node)) {
+      imageHtml.push(node);
     }
   });
 
@@ -126,7 +132,7 @@ module.exports = ({ markdownAST, reporter }, options) => {
     ),
     new Promise(resolve =>
       resolve(
-        gatsbyRemarkImagesHtml.map(imageNode => {
+        imageHtml.map(imageNode => {
           const wrapped = wrapImgMarkup(imageNode);
           imageNode.value = wrapped;
           return imageNode;

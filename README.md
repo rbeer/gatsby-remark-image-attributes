@@ -79,20 +79,19 @@ The resulting HTML will be:
 
 #### .gatsby-img-attributes
 
-Generated markup will always have a CSS class `gatsby-img-attributes`. The plugin itself does not come with any attributes for that class; you can use it freely to apply default styling to all images with attributes.
-
+Generated markup will always have a CSS class `gatsby-img-attributes`. The plugin itself does not come with any attributes for that class; you can use it to apply default styling to all images with attributes.
 
 ## Examples
 
 ### styleAttributes
 
-You can use the `styleAttributes` option to define CSS style names to be recognized and applied by the plugin.
+Use the `styleAttributes` option to define CSS style names to be recognized and applied by the plugin!
 
 You can set this to `true` to use [W3's official list of CSS properties](https://www.w3.org/Style/CSS/all-properties.en.html#list) (~530 names) as `styleAttributes`.
 
 ---
 
-To add only specific properties to the defaults, declare e.g. `position`, `top` and `left` in your _gatsby-config.js_:
+Declare e.g. `position`, `top` and `left` in your _gatsby-config.js_:
 
 ```js
 plugins: [

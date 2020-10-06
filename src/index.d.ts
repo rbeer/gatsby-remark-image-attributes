@@ -19,4 +19,4 @@ export declare function createStyle(attributes: ImageAttributes): string;
 export declare function createDataAttributes(
   attributes: ImageAttributes
 ): string;
-export declare function isGatsbyRemarkImagesHtml(node: any): boolean;
+export declare function isImageHtml(node: any): boolean;
