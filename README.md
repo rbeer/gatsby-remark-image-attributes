@@ -28,22 +28,18 @@ plugins: [
           resolve: `gatsby-remark-image-attributes`,
           options: {
 
-            // ?Array<String> | Boolean
-            //   Any names declared here are added
-            //   to the default set of attributes
-            //   which the plugin will use to style
-            //   the image.
-            //   If this is set to true, all CSS
+            // ?Boolean=true
+            //   If true (the default), all CSS
             //   property names will be recognized
             //   as styleAttribute.
-            styleAttributes: [`display`, `position`, `border`],
+            styleAttributes: true,
 
-            // ?Boolean
+            // ?Boolean=false
             //   If true, all attributes that
             //   aren't styleAttributes, will be
             //   added as data-* attributes to the
             //   image.
-            dataAttributes: true
+            dataAttributes: false
           }
         }
       ]
@@ -74,63 +70,22 @@ The resulting HTML will be:
 
 |Name|Type|Default|Description|
 |:-:|:-:|:-:|-|
-| styleAttributes | Array\<String\> \| Boolean | `['width', 'height', 'margin-left', 'margin-right', 'margin-top', 'margin-bottom', 'float']` | _Array\<String\>_<br />Any valid CSS style name you want to apply to an image. This option adds to the defaults, i.e. it can be omitted when only the defaults are needed. <br /><br />-OR-<br /><br />_Boolean_<br />Add _[all](https://www.w3.org/Style/CSS/all-properties.en.html#list)_ CSS properties to styleAttributes.
-| dataAttributes  |Boolean| `false` | Add all attributes not recognized as styleAttribute as data- attribute to the image.
+| [styleAttributes](#styleattributes) | Boolean | `true` | Set to `false` if you want to disable [CSS properties](https://www.w3.org/Style/CSS/all-properties.en.html#list) being added to the images style attribute.
+| [dataAttributes](#dataattributes) |Boolean| `false` | Set to `true` if you want attributes not recognized as styleAttribute to be added as data- attribute to the image.
 
 #### .gatsby-img-attributes
 
-Generated markup will always have a CSS class `gatsby-img-attributes`. The plugin itself does not come with any attributes for that class; you can use it to apply default styling to all images with attributes.
+Generated markup has a CSS class `gatsby-img-attributes`. The plugin itself does not come with any attributes for that class; you can use it to apply default styling to all images with attributes.
 
-## Examples
+#### styleAttributes
 
-### styleAttributes
+***NOTE:*** `options.styleAttributes` used to accept an `Array<String>`, its items extending a default set of recognized properties, e.g. `styleAttributes: ['position', 'top', 'left']`. This still works, but sets `styleAttributes: true`, enabling all CSS properties.
 
-Use the `styleAttributes` option to define CSS style names to be recognized and applied by the plugin!
+The plugin uses a [list of all CSS properties](https://github.com/rbeer/gatsby-remark-image-attributes/blob/master/src/css-props.json), as defined by the [W3C](https://www.w3.org/Style/CSS/all-properties.en.html), to decide whether an attribute is to be added to the image's style or not.
 
-You can set this to `true` to use [W3's official list of CSS properties](https://www.w3.org/Style/CSS/all-properties.en.html#list) (~530 names) as `styleAttributes`.
+#### dataAttributes
 
----
-
-Declare e.g. `position`, `top` and `left` in your _gatsby-config.js_:
-
-```js
-plugins: [
-  {
-    resolve: `gatsby-transformer-remark`,
-    options: {
-      plugins: [
-        {
-          resolve: `gatsby-remark-image-attributes`,
-          options: {
-            styleAttributes: [`position`, `top`, `left`]
-          }
-        }
-      ]
-    }
-  }
-];
-```
-
-so you then can use them as attributes on an image
-
-```md
-![happy](https://foomoji.com/happy.png#position=absolute;top=20px;left=10px)
-```
-
-producing
-
-```html
-<img
-  src="https://foomoji.com/happy.png"
-  alt="happy"
-  style="position: absolute; top: 20px; left: 10px;"
-  class="gatsby-img-attributes"
-/>
-```
-
-### dataAttributes
-
-When `options.dataAttributes` is `true`, the plugin will add all attributes whose key isn't in `options.styleAttributes` as data-* attribute to the image.
+When `options.dataAttributes` is `true`, the plugin will add all attributes whose key isn't a [CSS property](https://www.w3.org/Style/CSS/all-properties.en.html#list) as data-* attribute to the image.
 
 _gatsby-config.js_:
 
@@ -156,19 +111,51 @@ _md_:
 ```md
 ![happy](https://foomoji.com/happy.png#tool-tip=Fancy image with tooltip;position=absolute;height=100px)
 ```
-Where `height` is recognized as `styleAttribute` - because it is one of the defaults -, `tool-tip` _and_ `position` are not and thus applied as `dataAttributes`:
+Where `position` and `height` are recognized as `styleAttributes`, `tool-tip` is not and thus applied as `data-` attribute:
 
 ```html
 <img
   src="https://foomoji.com/happy.png"
   alt="happy"
-  style="height: 100px;"
+  style="position: absolute; height: 100px;"
   data-tool-tip="Fancy image with tooltip"
-  data-position="absolute"
   class="gatsby-img-attributes"
 />
 ```
 
+With `options.styleAttributes === false`, valid [CSS properties](https://www.w3.org/Style/CSS/all-properties.en.html#list) become `data-` attributes:
+
+```js
+plugins: [
+  {
+    resolve: `gatsby-transformer-remark`,
+    options: {
+      plugins: [
+        {
+          resolve: `gatsby-remark-image-attributes`,
+          options: {
+            styleAttributes: false,
+            dataAttributes: true
+          }
+        }
+      ]
+    }
+  }
+];
+```
+```md
+![happy](https://foomoji.com/happy.png#tool-tip=Fancy image with tooltip;position=absolute;height=100px)
+```
+```html
+<img
+  src="https://foomoji.com/happy.png"
+  alt="happy"
+  data-tool-tip="Fancy image with tooltip"
+  data-position="absolute"
+  data-height="100px"
+  class="gatsby-img-attributes"
+/>
+```
 ### use with gatsby-remark-images
 
 This plugin can handle already processed images (type: 'html'), as long as the node object contains an `attributes` field and the `value` an `<img />` tag.
@@ -193,7 +180,6 @@ plugins: [
         {
           resolve: `gatsby-remark-image-attributes`,
           options: {
-            styleAttributes: [`box-shadow`],
             dataAttributes: true
           }
         }
@@ -235,7 +221,7 @@ You might have noticed that `styleAttributes` and `class="gatsby-img-attributes"
 
 ### use with gatsby-plugin-mdx
 
-If you want to use MDX instead of the bare remark transformer, you have to add `gatsby-remark-image-attributes` to [`options.gatsbyRemarkPlugins`](https://www.gatsbyjs.com/plugins/gatsby-plugin-mdx/#gatsby-remark-plugins) of `gatsby-plugin-mdx`.
+Add `gatsby-remark-image-attributes` to [`options.gatsbyRemarkPlugins`](https://www.gatsbyjs.com/plugins/gatsby-plugin-mdx/#gatsby-remark-plugins) of `gatsby-plugin-mdx`.
 
 _gatsby-config.js_
 ```js
@@ -261,7 +247,8 @@ _gatsby-config.js_
           {
             resolve: "gatsby-remark-image-attributes",
             options: {
-              styleAttributes: ["box-shadow", "position"]
+              // styleAttributes: true,
+              // dataAttributes: false
             }
           }
         ]

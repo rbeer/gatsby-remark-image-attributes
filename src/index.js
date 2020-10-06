@@ -13,35 +13,26 @@ const logMsg = (strings, ...expressions) => {
   return `[gatsby-remark-image-attributes] ${message}`;
 };
 
-const _options = {
-  styleAttributes: [
-    'width',
-    'height',
-    'margin-left',
-    'margin-right',
-    'margin-top',
-    'margin-bottom',
-    'float'
-  ],
+const options = {
+  styleAttributes: [],
   dataAttributes: false
 };
 
-const applyOptions = ({ styleAttributes, dataAttributes }, reporter) => {
-  if (styleAttributes) {
-    if (Array.isArray(styleAttributes)) {
-      _options.styleAttributes = uniq(
-        _options.styleAttributes.concat(styleAttributes.filter(isString))
-      );
-    } else if (styleAttributes === true) {
-      _options.styleAttributes = allCSSProperties;
-    } else {
-      reporter.warn(
-        logMsg`Option styleAttributes must be an Array of strings or 'true'.`
-      );
-    }
+const applyOptions = (
+  { styleAttributes = true, dataAttributes = false },
+  reporter
+) => {
+  const styleAttributesIsArray = Array.isArray(styleAttributes);
+  if (styleAttributesIsArray) {
+    reporter.warn(
+      logMsg`Passing Array<String> to styleAttributes is deprecated.`
+    );
+    reporter.warn(logMsg`Using all CSS properties.`);
   }
+  options.styleAttributes =
+    styleAttributes === true || styleAttributesIsArray ? allCSSProperties : [];
 
-  _options.dataAttributes = dataAttributes === true;
+  options.dataAttributes = dataAttributes === true;
 };
 
 const isImageHtml = node => {
@@ -57,9 +48,9 @@ const categorizeAttributes = attributes => {
   const dataAttributes = {};
 
   for (const attributeKey in attributes) {
-    if (_options.styleAttributes.includes(attributeKey)) {
+    if (options.styleAttributes.includes(attributeKey)) {
       styleAttributes[attributeKey] = attributes[attributeKey];
-    } else if (_options.dataAttributes) {
+    } else if (options.dataAttributes) {
       dataAttributes[attributeKey] = attributes[attributeKey];
     }
   }
@@ -102,8 +93,8 @@ const wrapImgMarkup = ({ attributes, value, inline }) => {
   )}</span>`;
 };
 
-module.exports = ({ markdownAST, reporter }, options) => {
-  applyOptions(options, reporter);
+module.exports = ({ markdownAST, reporter }, userOptions) => {
+  applyOptions(userOptions, reporter);
 
   const imageHtml = [];
   visit(markdownAST, 'html', node => {
