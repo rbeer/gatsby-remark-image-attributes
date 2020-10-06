@@ -2096,10 +2096,10 @@ regjsparser@^0.6.4:
   dependencies:
     jsesc "~0.5.0"
 
-remark-image-attributes@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/remark-image-attributes/-/remark-image-attributes-0.2.0.tgz#033cd36951e36472b2f3af1f271a78610f950374"
-  integrity sha512-xz15f4NkfeCkIRHj8VOgMh2PqE2cMINb5p2M0oju139imcRQ01JJHTwbcuDhGhXZZC1vewIoSNGokzkC3HwMLA==
+remark-image-attributes@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/remark-image-attributes/-/remark-image-attributes-0.2.1.tgz#f33941577470a3c368dfbd14cb426d0a8ba0312f"
+  integrity sha512-g8TbKWzy0dBAWXrgPW8SmwbehY+1H8TsTtDB9PJr32hqz6joFCSFMCuTI8QqK9+yErBrQv635ksndeO9OTSIVw==
   dependencies:
     unist-util-select "^3.0.1"
 
