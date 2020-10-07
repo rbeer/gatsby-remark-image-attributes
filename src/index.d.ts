@@ -20,3 +20,4 @@ export declare function createDataAttributes(
   attributes: ImageAttributes
 ): string;
 export declare function isImageHtml(node: any): boolean;
+export declare function findWidth(value: string): string;

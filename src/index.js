@@ -58,14 +58,14 @@ const categorizeAttributes = attributes => {
   return { styleAttributes, dataAttributes };
 };
 
-const createStyle = (styleAttributes, inline) => {
+const createStyle = (styleAttributes, inline, width) => {
   let styleString = Object.keys(styleAttributes).reduce(
     (style, key) => `${style}${key}: ${styleAttributes[key]};`,
     ''
   );
 
   if (inline && !styleAttributes.width && !styleAttributes.height) {
-    styleString += 'width: 100%;';
+    styleString += `width: ${width};`;
   }
   return styleString;
 };
@@ -83,11 +83,15 @@ const createImgMarkup = ({ attributes, url, alt, inline }) => {
   }" alt="${alt}" ${createDataAttributes(dataAttributes)} />`;
 };
 
+const findWidth = value =>
+  (value.match(/width: (\d*(px|%|vw))/) || [, '100%'])[1];
+
 const wrapImgMarkup = ({ attributes, value, inline }) => {
+  const width = findWidth(value);
   const { styleAttributes, dataAttributes } = categorizeAttributes(attributes);
   return `<span class="gatsby-img-attributes" style="display:${
     inline ? 'inline-block' : 'block'
-  }; ${createStyle(styleAttributes, inline)}">${value.replace(
+  }; ${createStyle(styleAttributes, inline, width)}">${value.replace(
     /<img[^>]*/,
     `$& ${createDataAttributes(dataAttributes)}`
   )}</span>`;
