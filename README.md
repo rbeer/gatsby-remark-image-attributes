@@ -6,7 +6,17 @@ The plugin plays nicely with other image-processing plugins like [gatsby-remark-
 
 ![markdown_html](./sample.png)
 
-Try the [demo](https://remark-image-attributes.netlify.app/)!
+---
+### [Demo](https://remark-image-attributes.netlify.app/)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e80d307e-a042-4e42-a1b2-b339837f84b7/deploy-status)](https://app.netlify.com/sites/remark-image-attributes/deploys) [*source*](https://github.com/rbeer/gatsby-remark-image-attributes-demo)
+
+Some examples, using [MDX](#use-with-gatsby-plugin-mdx)
+
+- [CSS Properties](https://remark-image-attributes.netlify.app/#css-properties)
+  * [Positioning](https://remark-image-attributes.netlify.app/#positioning)
+  * [SVG](https://remark-image-attributes.netlify.app/#svg)
+  * [Inline and Lists](https://remark-image-attributes.netlify.app/#inline-and-lists)
+- [data-* attributes](https://remark-image-attributes.netlify.app/#data---attributes)
 
 ## Installation
 
