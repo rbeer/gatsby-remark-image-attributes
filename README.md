@@ -1,3 +1,5 @@
+# This plugin is not maintained!
+
 # gatsby-remark-image-attributes
 
 Creates HTML image markup with style and data-* attributes from 'image' nodes with attributes, as parsed by [remark-image-attributes](https://github.com/rbeer/remark-image-attributes.git).
