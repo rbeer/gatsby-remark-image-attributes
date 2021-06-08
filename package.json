@@ -4,17 +4,15 @@
   "main": "dist/index.js",
   "author": "Raphael Beer <raphael.beer@protonmail.com>",
   "dependencies": {
-    "@babel/runtime": "^7.11.2",
     "lodash.isstring": "^4.0.1",
     "lodash.uniq": "^4.5.0",
     "remark-image-attributes": "^0.2.1",
     "unist-util-visit": "^2.0.3"
   },
   "devDependencies": {
-    "@babel/cli": "^7.10.5",
-    "@babel/core": "^7.11.4",
-    "babel-preset-gatsby-package": "^0.3.2",
-    "cross-env": "^5.2.1"
+    "@tsconfig/node14": "^1.0.0",
+    "cross-env": "^5.2.1",
+    "typescript": "^4.3.2"
   },
   "homepage": "https://github.com/rbeer/gatsby-remark-image-attributes",
   "keywords": [
@@ -33,9 +31,8 @@
     "url": "https://github.com/rbeer/gatsby-remark-image-attributes.git"
   },
   "scripts": {
-    "build": "babel src --out-dir dist",
+    "build": "tsc -p tsconfig.json",
     "update-css-props": "node ./scripts/update-css-props.js",
-    "watch": "babel -w src --out-dir dist",
     "prepublishOnly": "yarn build && yarn update-css-props && cp ./src/css-props.json ./dist/css-props.json"
   },
   "engines": {
