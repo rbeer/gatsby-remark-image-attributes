@@ -1,23 +1,21 @@
-export interface ImageAttributes {
-  [string]: any;
+import { HTML, Image } from 'mdast';
+import RootAttributeImage from './attribute-image/root';
+import WrappedAttributeImage from './attribute-image/wrapped';
+
+type GatsbyLogger = any;
+
+interface Options {
+  styleAttributes?: string[];
+  dataAttributes?: boolean;
 }
 
-export type AmendImgMarkupParameters = {
-  attributes: ImageAttributes;
-  value: string;
+export type Attributes = {
+  [key: string]: string;
 };
 
-export type CreateImgMarkupParameters = {
-  attributes: ImageAttributes;
-  url: string;
-  alt: string;
-};
+export type AttributeImageNode = Image | HTML;
 
-export declare function amendImgMarkup(p: AmendImgMarkupParameters): string;
-export declare function createImgMarkup(p: CreateImgMarkupParameters): string;
-export declare function createStyle(attributes: ImageAttributes): string;
-export declare function createDataAttributes(
-  attributes: ImageAttributes
-): string;
-export declare function isImageHtml(node: any): boolean;
-export declare function findWidth(value: string): string;
+export type PluginResult = Promise<
+  WrappedAttributeImage[],
+  RootAttributeImage[]
+>;

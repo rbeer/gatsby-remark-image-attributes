@@ -1,0 +1,304 @@
+[
+  {
+    "node": {
+      "type": "html",
+      "title": "No attributes, here",
+      "url": "./gatsby-logo.png",
+      "alt": "no attributes",
+      "position": {
+        "start": { "line": 11, "column": 3, "offset": 370 },
+        "end": { "line": 11, "column": 60, "offset": 427 }
+      },
+      "value": "<span/g\n      class=\"gatsby-resp-image-wrapper\"\\n      style=\"position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 150px; \"\\n    >\\n      <span\\n    class=\"gatsby-resp-image-background-image\"\\n    style=\"padding-bottom: 100%; position: relative; bottom: 0; left: 0; display: block;\"\\n  ></span>\\n  <img\\n        class=\"gatsby-resp-image-image\"\\n        alt=\"no attributes\"\\n        title=\"No attributes, here\"\\n        src=\"/static/7611aa2af5f5789657c9d4c68a051876/8a4e8/gatsby-logo.png\"\\n        srcset=\"/static/7611aa2af5f5789657c9d4c68a051876/8a4e8/gatsby-logo.png 150w\"\\n        sizes=\"(max-width: 150px) 100vw, 150px\"\\n        style=\"width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;\"\\n        loading=\"lazy\"\\n      />\\n    </span>"
+    },
+    "attributes": {
+      "attributes": {},
+      "styleAttributes": {},
+      "dataAttributes": {},
+      "inline": true
+    }
+  },
+  {
+    "node": {
+      "type": "html",
+      "title": "#this is just a title, too",
+      "url": "./gatsby-logo.png",
+      "alt": "no attributes",
+      "position": {
+        "start": { "line": 11, "column": 61, "offset": 428 },
+        "end": { "line": 11, "column": 125, "offset": 492 }
+      },
+      "value": "<span\\n      class=\"gatsby-resp-image-wrapper\"\\n      style=\"position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 150px; \"\\n    >\\n      <span\\n    class=\"gatsby-resp-image-background-image\"\\n    style=\"padding-bottom: 100%; position: relative; bottom: 0; left: 0; display: block;\"\\n  ></span>\\n  <img\\n        class=\"gatsby-resp-image-image\"\\n        alt=\"no attributes\"\\n        title=\"#this is just a title, too\"\\n        src=\"/static/7611aa2af5f5789657c9d4c68a051876/8a4e8/gatsby-logo.png\"\\n        srcset=\"/static/7611aa2af5f5789657c9d4c68a051876/8a4e8/gatsby-logo.png 150w\"\\n        sizes=\"(max-width: 150px) 100vw, 150px\"\\n        style=\"width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;\"\\n        loading=\"lazy\"\\n      />\\n    </span>"
+    },
+    "attributes": {
+      "attributes": {},
+      "styleAttributes": {},
+      "dataAttributes": {},
+      "inline": true
+    }
+  },
+  {
+    "node": {
+      "type": "html",
+      "title": "#box-shadow=0px 0px 10px 2px rgb(2, 2, 2);width=150px",
+      "url": "./gatsby-logo.png",
+      "alt": "test",
+      "position": {
+        "start": { "line": 20, "column": 1, "offset": 752 },
+        "end": { "line": 20, "column": 83, "offset": 834 }
+      },
+      "value": "<span\\n      class=\"gatsby-resp-image-wrapper\"\\n      style=\"position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 150px; \"\\n    >\\n      <span\\n    class=\"gatsby-resp-image-background-image\"\\n    style=\"padding-bottom: 100%; position: relative; bottom: 0; left: 0; display: block;\"\\n  ></span>\\n  <img\\n        class=\"gatsby-resp-image-image\"\\n        alt=\"test\"\\n        title=\"#box-shadow=0px 0px 10px 2px rgb(2, 2, 2);width=150px\"\\n        src=\"/static/7611aa2af5f5789657c9d4c68a051876/8a4e8/gatsby-logo.png\"\\n        srcset=\"/static/7611aa2af5f5789657c9d4c68a051876/8a4e8/gatsby-logo.png 150w\"\\n        sizes=\"(max-width: 150px) 100vw, 150px\"\\n        style=\"width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;\"\\n        loading=\"lazy\"\\n      />\\n    </span>"
+    },
+    "attributes": {
+      "attributes": {
+        "box-shadow": "0px 0px 10px 2px rgb(2, 2, 2)",
+        "width": "150px"
+      },
+      "styleAttributes": {
+        "box-shadow": "0px 0px 10px 2px rgb(2, 2, 2)",
+        "width": "150px"
+      },
+      "dataAttributes": {},
+      "inline": false
+    }
+  },
+  {
+    "node": {
+      "type": "html",
+      "title": "#width=32px",
+      "url": "./gatsby-logo.png",
+      "alt": "with-remark-images",
+      "position": {
+        "start": { "line": 40, "column": 71, "offset": 2357 },
+        "end": { "line": 40, "column": 125, "offset": 2411 }
+      },
+      "value": "<span\\n      class=\"gatsby-resp-image-wrapper\"\\n      style=\"position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 150px; \"\\n    >\\n      <span\\n    class=\"gatsby-resp-image-background-image\"\\n    style=\"padding-bottom: 100%; position: relative; bottom: 0; left: 0; display: block;\"\\n  ></span>\\n  <img\\n        class=\"gatsby-resp-image-image\"\\n        alt=\"with-remark-images\"\\n        title=\"#width=32px\"\\n        src=\"/static/7611aa2af5f5789657c9d4c68a051876/8a4e8/gatsby-logo.png\"\\n        srcset=\"/static/7611aa2af5f5789657c9d4c68a051876/8a4e8/gatsby-logo.png 150w\"\\n        sizes=\"(max-width: 150px) 100vw, 150px\"\\n        style=\"width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;\"\\n        loading=\"lazy\"\\n      />\\n    </span>"
+    },
+    "attributes": {
+      "attributes": { "width": "32px" },
+      "styleAttributes": { "width": "32px" },
+      "dataAttributes": {},
+      "inline": true
+    }
+  },
+  {
+    "node": {
+      "type": "html",
+      "title": "#position=absolute;right=0;top=0;width=150px;height=150px",
+      "url": "./fmog.png",
+      "alt": "fork me on github",
+      "position": {
+        "start": { "line": 46, "column": 2, "offset": 2574 },
+        "end": { "line": 46, "column": 94, "offset": 2666 }
+      },
+      "value": "<span\\n      class=\"gatsby-resp-image-wrapper\"\\n      style=\"position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 298px; \"\\n    >\\n      <span\\n    class=\"gatsby-resp-image-background-image\"\\n    style=\"padding-bottom: 100%; position: relative; bottom: 0; left: 0; display: block;\"\\n  ></span>\\n  <img\\n        class=\"gatsby-resp-image-image\"\\n        alt=\"fork me on github\"\\n        title=\"#position=absolute;right=0;top=0;width=150px;height=150px\"\\n        src=\"/static/712f8e858bea9bc039da2b64fda4bece/ca501/fmog.png\"\\n        srcset=\"/static/712f8e858bea9bc039da2b64fda4bece/772e8/fmog.png 200w,\\n/static/712f8e858bea9bc039da2b64fda4bece/ca501/fmog.png 298w\"\\n        sizes=\"(max-width: 298px) 100vw, 298px\"\\n        style=\"width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;\"\\n        loading=\"lazy\"\\n      />\\n    </span>"
+    },
+    "attributes": {
+      "attributes": {
+        "position": "absolute",
+        "right": "0",
+        "top": "0",
+        "width": "150px",
+        "height": "150px"
+      },
+      "styleAttributes": {
+        "position": "absolute",
+        "right": "0",
+        "top": "0",
+        "width": "150px",
+        "height": "150px"
+      },
+      "dataAttributes": {},
+      "inline": true
+    }
+  },
+  {
+    "node": {
+      "type": "html",
+      "title": "#width=32px;vertical-align=text-bottom",
+      "url": "./gatsby-logo.png",
+      "alt": "gatsby",
+      "position": {
+        "start": { "line": 64, "column": 7, "offset": 3402 },
+        "end": { "line": 64, "column": 76, "offset": 3471 }
+      },
+      "value": "<span\\n      class=\"gatsby-resp-image-wrapper\"\\n      style=\"position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 150px; \"\\n    >\\n      <span\\n    class=\"gatsby-resp-image-background-image\"\\n    style=\"padding-bottom: 100%; position: relative; bottom: 0; left: 0; display: block;\"\\n  ></span>\\n  <img\\n        class=\"gatsby-resp-image-image\"\\n        alt=\"gatsby\"\\n        title=\"#width=32px;vertical-align=text-bottom\"\\n        src=\"/static/7611aa2af5f5789657c9d4c68a051876/8a4e8/gatsby-logo.png\"\\n        srcset=\"/static/7611aa2af5f5789657c9d4c68a051876/8a4e8/gatsby-logo.png 150w\"\\n        sizes=\"(max-width: 150px) 100vw, 150px\"\\n        style=\"width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;\"\\n        loading=\"lazy\"\\n      />\\n    </span>"
+    },
+    "attributes": {
+      "attributes": { "width": "32px", "vertical-align": "text-bottom" },
+      "styleAttributes": { "width": "32px", "vertical-align": "text-bottom" },
+      "dataAttributes": {},
+      "inline": true
+    }
+  },
+  {
+    "node": {
+      "type": "html",
+      "title": "#width=32px;vertical-align=middle",
+      "url": "./gatsby-logo.png",
+      "alt": "gatsby",
+      "position": {
+        "start": { "line": 64, "column": 84, "offset": 3479 },
+        "end": { "line": 64, "column": 148, "offset": 3543 }
+      },
+      "value": "<span\\n      class=\"gatsby-resp-image-wrapper\"\\n      style=\"position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 150px; \"\\n    >\\n      <span\\n    class=\"gatsby-resp-image-background-image\"\\n    style=\"padding-bottom: 100%; position: relative; bottom: 0; left: 0; display: block;\"\\n  ></span>\\n  <img\\n        class=\"gatsby-resp-image-image\"\\n        alt=\"gatsby\"\\n        title=\"#width=32px;vertical-align=middle\"\\n        src=\"/static/7611aa2af5f5789657c9d4c68a051876/8a4e8/gatsby-logo.png\"\\n        srcset=\"/static/7611aa2af5f5789657c9d4c68a051876/8a4e8/gatsby-logo.png 150w\"\\n        sizes=\"(max-width: 150px) 100vw, 150px\"\\n        style=\"width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;\"\\n        loading=\"lazy\"\\n      />\\n    </span>"
+    },
+    "attributes": {
+      "attributes": { "width": "32px", "vertical-align": "middle" },
+      "styleAttributes": { "width": "32px", "vertical-align": "middle" },
+      "dataAttributes": {},
+      "inline": true
+    }
+  },
+  {
+    "node": {
+      "type": "html",
+      "title": "#width=32px;vertical-align=text-top",
+      "url": "./gatsby-logo.png",
+      "alt": "gatsby",
+      "position": {
+        "start": { "line": 64, "column": 154, "offset": 3549 },
+        "end": { "line": 64, "column": 220, "offset": 3615 }
+      },
+      "value": "<span\\n      class=\"gatsby-resp-image-wrapper\"\\n      style=\"position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 150px; \"\\n    >\\n      <span\\n    class=\"gatsby-resp-image-background-image\"\\n    style=\"padding-bottom: 100%; position: relative; bottom: 0; left: 0; display: block;\"\\n  ></span>\\n  <img\\n        class=\"gatsby-resp-image-image\"\\n        alt=\"gatsby\"\\n        title=\"#width=32px;vertical-align=text-top\"\\n        src=\"/static/7611aa2af5f5789657c9d4c68a051876/8a4e8/gatsby-logo.png\"\\n        srcset=\"/static/7611aa2af5f5789657c9d4c68a051876/8a4e8/gatsby-logo.png 150w\"\\n        sizes=\"(max-width: 150px) 100vw, 150px\"\\n        style=\"width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;\"\\n        loading=\"lazy\"\\n      />\\n    </span>"
+    },
+    "attributes": {
+      "attributes": { "width": "32px", "vertical-align": "text-top" },
+      "styleAttributes": { "width": "32px", "vertical-align": "text-top" },
+      "dataAttributes": {},
+      "inline": true
+    }
+  },
+  {
+    "node": {
+      "type": "html",
+      "title": "#width=24px;vertical-align=middle",
+      "url": "./gatsby-logo.png",
+      "alt": "gatsby",
+      "position": {
+        "start": { "line": 71, "column": 6, "offset": 3877 },
+        "end": { "line": 71, "column": 70, "offset": 3941 }
+      },
+      "value": "<span\\n      class=\"gatsby-resp-image-wrapper\"\\n      style=\"position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 150px; \"\\n    >\\n      <span\\n    class=\"gatsby-resp-image-background-image\"\\n    style=\"padding-bottom: 100%; position: relative; bottom: 0; left: 0; display: block;\"\\n  ></span>\\n  <img\\n        class=\"gatsby-resp-image-image\"\\n        alt=\"gatsby\"\\n        title=\"#width=24px;vertical-align=middle\"\\n        src=\"/static/7611aa2af5f5789657c9d4c68a051876/8a4e8/gatsby-logo.png\"\\n        srcset=\"/static/7611aa2af5f5789657c9d4c68a051876/8a4e8/gatsby-logo.png 150w\"\\n        sizes=\"(max-width: 150px) 100vw, 150px\"\\n        style=\"width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;\"\\n        loading=\"lazy\"\\n      />\\n    </span>"
+    },
+    "attributes": {
+      "attributes": { "width": "24px", "vertical-align": "middle" },
+      "styleAttributes": { "width": "24px", "vertical-align": "middle" },
+      "dataAttributes": {},
+      "inline": true
+    }
+  },
+  {
+    "node": {
+      "type": "html",
+      "title": "#width=24px;vertical-align=middle;margin-top=10px;margin-bottom=10px",
+      "url": "./gatsby-logo.png",
+      "alt": "gatsby",
+      "position": {
+        "start": { "line": 72, "column": 6, "offset": 3947 },
+        "end": { "line": 72, "column": 105, "offset": 4046 }
+      },
+      "value": "<span\\n      class=\"gatsby-resp-image-wrapper\"\\n      style=\"position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 150px; \"\\n    >\\n      <span\\n    class=\"gatsby-resp-image-background-image\"\\n    style=\"padding-bottom: 100%; position: relative; bottom: 0; left: 0; display: block;\"\\n  ></span>\\n  <img\\n        class=\"gatsby-resp-image-image\"\\n        alt=\"gatsby\"\\n        title=\"#width=24px;vertical-align=middle;margin-top=10px;margin-bottom=10px\"\\n        src=\"/static/7611aa2af5f5789657c9d4c68a051876/8a4e8/gatsby-logo.png\"\\n        srcset=\"/static/7611aa2af5f5789657c9d4c68a051876/8a4e8/gatsby-logo.png 150w\"\\n        sizes=\"(max-width: 150px) 100vw, 150px\"\\n        style=\"width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;\"\\n        loading=\"lazy\"\\n      />\\n    </span>"
+    },
+    "attributes": {
+      "attributes": {
+        "width": "24px",
+        "vertical-align": "middle",
+        "margin-top": "10px",
+        "margin-bottom": "10px"
+      },
+      "styleAttributes": {
+        "width": "24px",
+        "vertical-align": "middle",
+        "margin-top": "10px",
+        "margin-bottom": "10px"
+      },
+      "dataAttributes": {},
+      "inline": true
+    }
+  },
+  {
+    "node": {
+      "type": "html",
+      "title": "#width=24px;vertical-align=middle",
+      "url": "./gatsby-logo.png",
+      "alt": "gatsby",
+      "position": {
+        "start": { "line": 73, "column": 9, "offset": 4055 },
+        "end": { "line": 73, "column": 73, "offset": 4119 }
+      },
+      "value": "<span\\n      class=\"gatsby-resp-image-wrapper\"\\n      style=\"position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 150px; \"\\n    >\\n      <span\\n    class=\"gatsby-resp-image-background-image\"\\n    style=\"padding-bottom: 100%; position: relative; bottom: 0; left: 0; display: block;\"\\n  ></span>\\n  <img\\n        class=\"gatsby-resp-image-image\"\\n        alt=\"gatsby\"\\n        title=\"#width=24px;vertical-align=middle\"\\n        src=\"/static/7611aa2af5f5789657c9d4c68a051876/8a4e8/gatsby-logo.png\"\\n        srcset=\"/static/7611aa2af5f5789657c9d4c68a051876/8a4e8/gatsby-logo.png 150w\"\\n        sizes=\"(max-width: 150px) 100vw, 150px\"\\n        style=\"width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;\"\\n        loading=\"lazy\"\\n      />\\n    </span>"
+    },
+    "attributes": {
+      "attributes": { "width": "24px", "vertical-align": "middle" },
+      "styleAttributes": { "width": "24px", "vertical-align": "middle" },
+      "dataAttributes": {},
+      "inline": true
+    }
+  },
+  {
+    "node": {
+      "type": "html",
+      "title": "#some=value with spaces;another=without;width=32px;vertical-align=middle",
+      "url": "./gatsby-logo.png",
+      "alt": "gatsby",
+      "position": {
+        "start": { "line": 84, "column": 26, "offset": 4419 },
+        "end": { "line": 84, "column": 129, "offset": 4522 }
+      },
+      "value": "<span\\n      class=\"gatsby-resp-image-wrapper\"\\n      style=\"position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 150px; \"\\n    >\\n      <span\\n    class=\"gatsby-resp-image-background-image\"\\n    style=\"padding-bottom: 100%; position: relative; bottom: 0; left: 0; display: block;\"\\n  ></span>\\n  <img\\n        class=\"gatsby-resp-image-image\"\\n        alt=\"gatsby\"\\n        title=\"#some=value with spaces;another=without;width=32px;vertical-align=middle\"\\n        src=\"/static/7611aa2af5f5789657c9d4c68a051876/8a4e8/gatsby-logo.png\"\\n        srcset=\"/static/7611aa2af5f5789657c9d4c68a051876/8a4e8/gatsby-logo.png 150w\"\\n        sizes=\"(max-width: 150px) 100vw, 150px\"\\n        style=\"width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;\"\\n        loading=\"lazy\"\\n      />\\n    </span>"
+    },
+    "attributes": {
+      "attributes": {
+        "some": "value with spaces",
+        "another": "without",
+        "width": "32px",
+        "vertical-align": "middle"
+      },
+      "styleAttributes": { "width": "32px", "vertical-align": "middle" },
+      "dataAttributes": { "some": "value with spaces", "another": "without" },
+      "inline": true
+    }
+  },
+  {
+    "node": {
+      "type": "html",
+      "title": "#this is just a title, despite starting with a #",
+      "url": "./gatsby-logo.png",
+      "alt": "no attributes",
+      "position": {
+        "start": { "line": 95, "column": 1, "offset": 4933 },
+        "end": { "line": 95, "column": 87, "offset": 5019 }
+      },
+      "value": "<span\\n      class=\"gatsby-resp-image-wrapper\"\\n      style=\"position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 150px; \"\\n    >\\n      <span\\n    class=\"gatsby-resp-image-background-image\"\\n    style=\"padding-bottom: 100%; position: relative; bottom: 0; left: 0; display: block;\"\\n  ></span>\\n  <img\\n        class=\"gatsby-resp-image-image\"\\n        alt=\"no attributes\"\\n        title=\"#this is just a title, despite starting with a #\"\\n        src=\"/static/7611aa2af5f5789657c9d4c68a051876/8a4e8/gatsby-logo.png\"\\n        srcset=\"/static/7611aa2af5f5789657c9d4c68a051876/8a4e8/gatsby-logo.png 150w\"\\n        sizes=\"(max-width: 150px) 100vw, 150px\"\\n        style=\"width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;\"\\n        loading=\"lazy\"\\n      />\\n    </span>"
+    },
+    "attributes": {
+      "attributes": {},
+      "styleAttributes": {},
+      "dataAttributes": {},
+      "inline": false
+    }
+  },
+  {
+    "node": {
+      "type": "html",
+      "title": "#width=64px;title=This has a title from image attributes",
+      "url": "./gatsby-logo.png",
+      "alt": "title from attribute",
+      "position": {
+        "start": { "line": 103, "column": 1, "offset": 5245 },
+        "end": { "line": 103, "column": 102, "offset": 5346 }
+      },
+      "value": "<span\\n      class=\"gatsby-resp-image-wrapper\"\\n      style=\"position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 150px; \"\\n    >\\n      <span\\n    class=\"gatsby-resp-image-background-image\"\\n    style=\"padding-bottom: 100%; position: relative; bottom: 0; left: 0; display: block;\"\\n  ></span>\\n  <img\\n        class=\"gatsby-resp-image-image\"\\n        alt=\"title from attribute\"\\n        title=\"#width=64px;title=This has a title from image attributes\"\\n        src=\"/static/7611aa2af5f5789657c9d4c68a051876/8a4e8/gatsby-logo.png\"\\n        srcset=\"/static/7611aa2af5f5789657c9d4c68a051876/8a4e8/gatsby-logo.png 150w\"\\n        sizes=\"(max-width: 150px) 100vw, 150px\"\\n        style=\"width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;\"\\n        loading=\"lazy\"\\n      />\\n    </span>"
+    },
+    "attributes": {
+      "attributes": {
+        "width": "64px",
+        "title": "This has a title from image attributes"
+      },
+      "styleAttributes": { "width": "64px" },
+      "dataAttributes": { "title": "This has a title from image attributes" },
+      "inline": false
+    }
+  }
+]

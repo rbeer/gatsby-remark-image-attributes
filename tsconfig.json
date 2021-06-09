@@ -1,9 +1,10 @@
 {
   "extends": "@tsconfig/node14/tsconfig.json",
   "compilerOptions": {
-    "outDir": "dist",
+    "lib": ["ES2018", "DOM"],
     "module": "commonjs",
-    "lib": ["ES6", "DOM"]
+    "outDir": "dist",
+    "resolveJsonModule": true
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules", "**/*.spec.ts"]
