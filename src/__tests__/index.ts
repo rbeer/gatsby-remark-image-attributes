@@ -135,7 +135,7 @@ describe('Given mdAST HTML nodes', () => {
       expect(image.value).toMatchSnapshot();
     });
 
-    describe('with showCaption option', () => {
+    describe('with showCaption option (generating <figure>s)', () => {
       let figureImage: PluginResult;
       beforeAll(async () => {
         [[figureImage]] = await run(gatsbyRemarkImagesFixtures.figure.node);
