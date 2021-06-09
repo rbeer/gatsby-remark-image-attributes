@@ -2,8 +2,11 @@ import { HTML, Image } from 'mdast';
 import { AttributeImageNode, GatsbyLogger, Options } from './index.d';
 
 import visit from 'unist-util-visit';
-
-import { RootAttributeImage, WrappedAttributeImage } from './attribute-image';
+// The nicer folder/index pattern fails with
+// TypeError: attribute_image_1.WrappedAttributeImage is not a constructor
+// - misconfiguration of TS compiler?␓
+import RootAttributeImage from './attribute-image/root';
+import WrappedAttributeImage from './attribute-image/wrapped';
 
 const options: Options = {
   styleAttributes: [],

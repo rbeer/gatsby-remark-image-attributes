@@ -1,9 +1,9 @@
 {
   "extends": "@tsconfig/node14/tsconfig.json",
   "compilerOptions": {
-    "outDir": "dist",
-    "module": "commonjs",
     "lib": ["ES2018", "DOM"],
+    "module": "commonjs",
+    "outDir": "dist",
     "resolveJsonModule": true
   },
   "include": ["src/**/*.ts"],

@@ -1,6 +1,6 @@
-import { AttributeImageNode } from './index.d';
+import { AttributeImageNode } from '../index.d';
 
-import ImageAttributes from './image-attributes';
+import ImageAttributes from '../image-attributes';
 
 abstract class AttributeImage {
   node: AttributeImageNode;
