@@ -4,13 +4,10 @@
   "main": "dist/index.js",
   "author": "Raphael Beer <raphael.beer@protonmail.com>",
   "dependencies": {
-    "@types/mdast": "^3.0.3",
-    "lodash.isstring": "^4.0.1",
-    "lodash.uniq": "^4.5.0",
-    "remark-image-attributes": "^0.2.1",
     "unist-util-visit": "^2.0.3"
   },
   "devDependencies": {
+    "@types/mdast": "^3.0.3",
     "@tsconfig/node14": "^1.0.0",
     "@types/unist": "^2.0.3",
     "cross-env": "^5.2.1",
