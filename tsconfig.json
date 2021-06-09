@@ -3,7 +3,8 @@
   "compilerOptions": {
     "outDir": "dist",
     "module": "commonjs",
-    "lib": ["ES6", "DOM"]
+    "lib": ["ES2018", "DOM"],
+    "resolveJsonModule": true
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules", "**/*.spec.ts"]
