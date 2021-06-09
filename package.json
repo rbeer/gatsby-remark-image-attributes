@@ -32,7 +32,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "update-css-props": "node ./scripts/update-css-props.js",
-    "prepublishOnly": "yarn build && yarn update-css-props && cp ./src/css-props.json ./dist/css-props.json"
+    "prepublishOnly": "./scripts/prepublish.sh"
   },
   "engines": {
     "node": ">=10.13.0"
