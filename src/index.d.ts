@@ -1,4 +1,6 @@
 import { HTML, Image } from 'mdast';
+import RootAttributeImage from './attribute-image/root';
+import WrappedAttributeImage from './attribute-image/wrapped';
 
 type GatsbyLogger = any;
 
@@ -12,3 +14,8 @@ export type Attributes = {
 };
 
 export type AttributeImageNode = Image | HTML;
+
+export type PluginResult = Promise<
+  WrappedAttributeImage[],
+  RootAttributeImage[]
+>;

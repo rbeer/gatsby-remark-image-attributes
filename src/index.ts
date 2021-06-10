@@ -1,5 +1,10 @@
 import { HTML, Image } from 'mdast';
-import { AttributeImageNode, GatsbyLogger, Options } from './index.d';
+import {
+  AttributeImageNode,
+  GatsbyLogger,
+  Options,
+  PluginResult
+} from './index.d';
 
 import visit from 'unist-util-visit';
 // The nicer folder/index pattern fails with
@@ -7,6 +12,7 @@ import visit from 'unist-util-visit';
 // - misconfiguration of TS compiler?␓
 import RootAttributeImage from './attribute-image/root';
 import WrappedAttributeImage from './attribute-image/wrapped';
+import { Node } from 'unist';
 
 const options: Options = {
   styleAttributes: [],
@@ -37,40 +43,40 @@ const isImageHtml = (node: AttributeImageNode) =>
   !!node.url && /<img/.test(node.value as string);
 
 export default (
-  { markdownAST, reporter }: { markdownAST: any; reporter: GatsbyLogger },
+  { markdownAST, reporter }: { markdownAST: Node; reporter: GatsbyLogger },
   userOptions: Options
-) => {
+): PluginResult => {
   applyOptions(userOptions, reporter);
 
-  const imageHtml: WrappedAttributeImage[] = [];
+  const attributeImages: [WrappedAttributeImage[], RootAttributeImage[]] = [
+    [],
+    []
+  ];
+
   visit(markdownAST, 'html', (node: HTML) => {
     if (isImageHtml(node)) {
-      imageHtml.push(new WrappedAttributeImage(node));
+      attributeImages[0].push(new WrappedAttributeImage(node));
     }
   });
 
-  const images: RootAttributeImage[] = [];
   visit(markdownAST, 'image', (node: Image) => {
     // only process images with attributes
     const aimg = new RootAttributeImage(node);
     if (aimg.attributes) {
-      images.push(aimg);
+      attributeImages[1].push(aimg);
     }
   });
 
-  console.log(
-    'images',
-    images.map(attributeImage => attributeImage.mdastNode)
-  );
-  // @ts-ignore
-  //process.exit();
-
   return Promise.all([
     new Promise(resolve =>
-      resolve(images.map(attributeImage => attributeImage.mdastNode))
+      resolve(
+        attributeImages[1].map(attributeImage => attributeImage.mdastNode)
+      )
     ),
     new Promise(resolve =>
-      resolve(imageHtml.map(attributeImage => attributeImage.mdastNode))
+      resolve(
+        attributeImages[1].map(attributeImage => attributeImage.mdastNode)
+      )
     )
   ]);
 };
