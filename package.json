@@ -17,6 +17,7 @@
     "jest-junit": "^12.2.0",
     "jest-serializer-path": "^0.1.15",
     "node-notifier": "^10.0.0",
+    "remark": "^13.0.0",
     "ts-jest": "^27.0.3",
     "ts-node": "^10.0.0",
     "typescript": "^4.3.2"
@@ -41,6 +42,8 @@
     "build": "tsc -p tsconfig.json",
     "dev": "jest --watch -c jest.config.ts",
     "prepublishOnly": "./scripts/prepublish.sh",
+    "postpublish": "npm run stats",
+    "stats": "npx howfat -r tree gatsby-remark-image-attributes@latest",
     "test": "jest -c jest.config.ts",
     "update-css-props": "node ./scripts/update-css-props.js"
   },

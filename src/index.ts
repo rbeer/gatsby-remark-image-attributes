@@ -48,29 +48,29 @@ export default (
 ): PluginResult => {
   applyOptions(userOptions, reporter);
 
-  const attributeImages: [WrappedAttributeImage[], RootAttributeImage[]] = [
+  const attributeImages: [RootAttributeImage[], WrappedAttributeImage[]] = [
     [],
     []
   ];
-
-  visit(markdownAST, 'html', (node: HTML) => {
-    if (isImageHtml(node)) {
-      attributeImages[0].push(new WrappedAttributeImage(node));
-    }
-  });
 
   visit(markdownAST, 'image', (node: Image) => {
     // only process images with attributes
     const aimg = new RootAttributeImage(node);
     if (aimg.attributes) {
-      attributeImages[1].push(aimg);
+      attributeImages[0].push(aimg);
+    }
+  });
+
+  visit(markdownAST, 'html', (node: HTML) => {
+    if (isImageHtml(node)) {
+      attributeImages[1].push(new WrappedAttributeImage(node));
     }
   });
 
   return Promise.all([
     new Promise(resolve =>
       resolve(
-        attributeImages[1].map(attributeImage => attributeImage.mdastNode)
+        attributeImages[0].map(attributeImage => attributeImage.mdastNode)
       )
     ),
     new Promise(resolve =>

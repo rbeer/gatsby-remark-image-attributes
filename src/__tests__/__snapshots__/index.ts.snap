@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given mdAST Image nodes adds plugin's CSS class 1`] = `"<img src=\\"./gatsby-logo.png\\" class=\\"gatsby-img-attributes\\" style=\\"width: 10px;color: rgb(10, 10, 10);\\" alt=\\"gatsby\\" title=\\"\\"/>"`;
+
+exports[`Given mdAST Image nodes doesn't trip over values with spaces 1`] = `"<img src=\\"./gatsby-logo.png\\" class=\\"gatsby-img-attributes\\" style=\\"width: 10px;color: rgb(10, 10, 10);\\" alt=\\"gatsby\\" title=\\"\\"/>"`;
+
+exports[`Given mdAST Image nodes ignores images without title 1`] = `"<img src=\\"./none.png\\" class=\\"gatsby-img-attributes\\" style=\\"width: 100%;\\" alt=\\"no title\\" title=\\"\\"/>"`;
+
+exports[`Given mdAST Image nodes ignores titles without key=value; pairs 1`] = `"<img src=\\"./title.png\\" class=\\"gatsby-img-attributes\\" style=\\"width: 100%;\\" alt=\\"title\\" title=\\"#standard syntax title\\"/>"`;
+
+exports[`Given mdAST Image nodes removes attributes from the title 1`] = `"<img src=\\"./remove.png\\" class=\\"gatsby-img-attributes\\" style=\\"height: 10px;\\" alt=\\"remove\\" title=\\"\\"/>"`;
+
+exports[`Given mdAST Image nodes sets title to value of a title= attribute 1`] = `"<img src=\\"./attribute.png\\" class=\\"gatsby-img-attributes\\" style=\\"width: 32px;color: blue;\\" alt=\\"fromAttribute\\" title=\\"title from attribute\\"/>"`;
+
+exports[`Given mdAST Image nodes warns about styleAttributes option being deprecated 1`] = `"<img src=\\"./remove.png\\" class=\\"gatsby-img-attributes\\" style=\\"height: 10px;\\" alt=\\"remove\\" title=\\"\\"/>"`;
