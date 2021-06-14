@@ -14,9 +14,6 @@ abstract class AttributeImage {
   get width(): string {
     const defaultWidth = ['', '100%'];
     const value = this.node.value as string;
-    if (!value) {
-      return defaultWidth[1];
-    }
     return (value.match(/width: (\d*(px|%|vw))/) || defaultWidth)[1];
   }
 
