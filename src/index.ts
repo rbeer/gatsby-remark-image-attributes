@@ -59,7 +59,7 @@ export default (
   visit(markdownAST, 'image', (node: Image) => {
     // only process images with attributes
     const aimg = new RootAttributeImage(node);
-    if (aimg.attributes) {
+    if (aimg.attributes.length) {
       attributeImages.root.push(aimg);
     }
   });
