@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
 rm -rf dist/
-yarn build && \
-  yarn update-css-props && \
+npm run cov &&
+  npm run build && \
+  npm run update-css-props && \
   cp ./src/css-props.json ./dist/css-props.json
 
 git add ./src/css-props.json
