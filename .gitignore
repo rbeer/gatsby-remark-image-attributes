@@ -2,3 +2,5 @@ node_modules
 *.log
 /index.js
 dist
+coverage
+.res
