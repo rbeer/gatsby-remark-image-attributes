@@ -11,6 +11,7 @@
     "unist-util-visit": "^2.0.3"
   },
   "devDependencies": {
+    "@tsconfig/node10": "^1.0.8",
     "@tsconfig/node12": "^1.0.8",
     "@types/jest": "^26.0.23",
     "@types/mdast": "^3.0.3",
@@ -36,7 +37,7 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "gatsby": "^3.0.0"
+    "gatsby": "^2.24.50 || ^3.0.0"
   },
   "repository": {
     "type": "git",
@@ -54,7 +55,7 @@
     "update-css-props": "ts-node ./scripts/update-css-props.ts"
   },
   "engines": {
-    "node": ">=12.13.0"
+    "node": ">=10.13.0"
   },
   "files": [
     "README.md",

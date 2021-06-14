@@ -80,7 +80,7 @@ describe('Given mdAST Image nodes', () => {
   });
 });
 
-describe('Given HTML nodes', () => {
+describe('Given mdAST HTML nodes', () => {
   it('ignores nodes without <img>', async () => {
     const [, [image]] = await run(gatsbyRemarkImagesFixtures.notAnImage.node);
     expect(image).toBe(undefined);
