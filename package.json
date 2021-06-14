@@ -51,7 +51,7 @@
     "postpublish": "npm run stats",
     "stats": "npx howfat -r tree gatsby-remark-image-attributes@latest",
     "test": "jest -c jest.config.ts",
-    "update-css-props": "node ./scripts/update-css-props.js"
+    "update-css-props": "ts-node ./scripts/update-css-props.ts"
   },
   "engines": {
     "node": ">=12.13.0"
