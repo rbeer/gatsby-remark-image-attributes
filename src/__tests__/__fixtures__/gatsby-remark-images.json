@@ -1,0 +1,93 @@
+{
+  "notAnImage": {
+    "node": {
+      "type": "html",
+      "position": {
+        "start": { "line": 11, "column": 3, "offset": 370 },
+        "end": { "line": 11, "column": 60, "offset": 427 }
+      },
+      "value": "<div>foo</div>"
+    },
+    "attributes": {
+      "attributes": {},
+      "styleAttributes": {},
+      "dataAttributes": {},
+      "inline": true
+    }
+  },
+  "noAttributes": {
+    "node": {
+      "type": "html",
+      "title": "No attributes, here",
+      "url": "./gatsby-logo.png",
+      "alt": "noattributes",
+      "position": {
+        "start": { "line": 11, "column": 3, "offset": 370 },
+        "end": { "line": 11, "column": 60, "offset": 427 }
+      },
+      "value": "<span class=\"gatsby-resp-image-wrapper\" style=\"position: relative; display:block; margin-left: auto; margin-right: auto; max-width: 150px; \"> <span class=\"gatsby-resp-image-background-image\"style=\"padding-bottom: 100%; position: relative; bottom: 0; left: 0; display:block;\"></span><img class=\"gatsby-resp-image-image\" alt=\"no attributes\" title=\"#No attributes, here\"src=\"/static/7611aa2af5f5789657c9d4c68a051876/8a4e8/gatsby-logo.png\"srcset=\"/static/7611aa2af5f5789657c9d4c68a051876/8a4e8/gatsby-logo.png 150w\" sizes=\"(max-width: 150px) 100vw, 150px\" style=\"width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;\" loading=\"lazy\"/></span>"
+    },
+    "attributes": {
+      "attributes": {},
+      "styleAttributes": {},
+      "dataAttributes": {},
+      "inline": true
+    }
+  },
+  "styleAttributes": {
+    "node": {
+      "type": "html",
+      "title": "#box-shadow=0px 0px 10px 2px rgb(2, 2,2);width=150px",
+      "url": "./gatsby-logo.png",
+      "alt": "test",
+      "position": {
+        "start": { "line": 20, "column": 1, "offset": 752 },
+        "end": { "line": 20, "column": 83, "offset": 834 }
+      },
+      "value": "<span      class=\"gatsby-resp-image-wrapper\"      style=\"position:relative; display: block; margin-left: auto; margin-right: auto; max-width:150px; \"    >      <spanclass=\"gatsby-resp-image-background-image\"    style=\"padding-bottom: 100%;position: relative; bottom: 0; left: 0; display: block;\"  ></span>  <img       class=\"gatsby-resp-image-image\"        alt=\"test\"title=\"#box-shadow=0px 0px 10px 2px rgb(2, 2, 2);width=150px\"src=\"/static/7611aa2af5f5789657c9d4c68a051876/8a4e8/gatsby-logo.png\"srcset=\"/static/7611aa2af5f5789657c9d4c68a051876/8a4e8/gatsby-logo.png 150w\"        sizes=\"(max-width: 150px) 100vw, 150px\"        style=\"width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;\"    loading=\"lazy\"      /></span>"
+    },
+    "attributes": {
+      "attributes": {
+        "box-shadow": "0px 0px 10px 2px rgb(2, 2,2)",
+        "width": "150px"
+      },
+      "styleAttributes": {
+        "box-shadow": "0px 0px 10px 2px rgb(2, 2, 2)",
+        "width": "150px"
+      },
+      "dataAttributes": {},
+      "inline": false
+    }
+  },
+  "titleAttribute": {
+    "node": {
+      "type": "html",
+      "title": "#title=Title from imageAttribute;position=absolute;right=0;top=0;width=150px;height=150px",
+      "url": "./fmog.png",
+      "alt": "fork me ongithub",
+      "position": {
+        "start": { "line": 46, "column": 2, "offset": 2574 },
+        "end": { "line": 46, "column": 94, "offset": 2666 }
+      },
+      "value": "<span class=\"gatsby-resp-image-wrapper\"      style=\"position: relative; display:block; margin-left: auto; margin-right: auto; max-width: 298px; \"    > <span    class=\"gatsby-resp-image-background-image\"style=\"padding-bottom: 100%; position: relative; bottom: 0; left: 0; display:block;\"  ></span>  <img        class=\"gatsby-resp-image-image\" alt=\"fork me on github\"title=\"#title=Title from imageAttribute;position=absolute;right=0;top=0;width=150px;height=150px\"src=\"/static/712f8e858bea9bc039da2b64fda4bece/ca501/fmog.png\"srcset=\"/static/712f8e858bea9bc039da2b64fda4bece/772e8/fmog.png200w,/static/712f8e858bea9bc039da2b64fda4bece/ca501/fmog.png 298w\"sizes=\"(max-width: 298px) 100vw, 298px\"        style=\"width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;\"loading=\"lazy\"      />    </span>"
+    },
+    "attributes": {
+      "attributes": {
+        "position": "absolute",
+        "right": "0",
+        "top": "0",
+        "width": "150px",
+        "height": "150px"
+      },
+      "styleAttributes": {
+        "position": "absolute",
+        "right": "0",
+        "top": "0",
+        "width": "150px",
+        "height": "150px"
+      },
+      "dataAttributes": {},
+      "inline": true
+    }
+  }
+}
