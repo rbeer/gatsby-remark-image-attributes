@@ -16,14 +16,4 @@ export default class WrappedAttributeImage extends AttributeImage {
       this.attributes.inline ? 'inline-block' : 'block'
     }; ${this.style}">${value}</span>`;
   }
-
-  get mdastNode() {
-    this.node.title = this.attributes.dataAttributes.title || this.node.title;
-    if (this.attributes.length && (this.node.title as string).startsWith('#')) {
-      this.node.title = null;
-    }
-    this.node.type = 'html';
-    this.node.value = this.html;
-    return this.node;
-  }
 }

@@ -44,7 +44,16 @@ abstract class AttributeImage {
     return styleString;
   }
 
+  get mdastNode() {
+    this.node.title = this.attributes.dataAttributes.title || this.node.title;
+    if (this.attributes.length && (this.node.title as string).startsWith('#')) {
+      this.node.title = null;
+    }
+    this.node.type = 'html';
+    this.node.value = this.html;
+    return this.node;
+  }
+
   abstract get html(): string;
-  abstract get mdastNode(): AttributeImageNode;
 }
 export default AttributeImage;

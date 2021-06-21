@@ -9,8 +9,7 @@ export default class ImageAttributes {
   dataAttributes: Attributes = {};
 
   constructor(node: AttributeImageNode) {
-    this.parse(node);
-    this.categorizeAttributes();
+    this.parse(node).categorizeAttributes();
     this.inline = (node.position?.start?.column || 0) > 1;
   }
 
