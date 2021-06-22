@@ -13,6 +13,7 @@ import visit from 'unist-util-visit';
 import RootAttributeImage from './attribute-image/root';
 import WrappedAttributeImage from './attribute-image/wrapped';
 import { Node } from 'unist';
+import FigureAttributeImage from './attribute-image/figure';
 
 const options: Options = {
   styleAttributes: [],
@@ -39,8 +40,11 @@ const applyOptions = (
   options.dataAttributes = dataAttributes === true;
 };
 
-const isImageHtml = (node: AttributeImageNode) =>
+const isImgHtml = (node: AttributeImageNode) =>
   !!node.url && /<img/.test(node.value as string);
+
+const isFigureHtml = (node: AttributeImageNode) =>
+  !!node.url && /<figure/.test(node.value as string);
 
 export default (
   { markdownAST, reporter }: { markdownAST: Node; reporter: GatsbyLogger },
@@ -49,9 +53,11 @@ export default (
   applyOptions(userOptions, reporter);
 
   const attributeImages: {
+    figure: FigureAttributeImage[];
     root: RootAttributeImage[];
     wrapped: WrappedAttributeImage[];
   } = {
+    figure: [],
     root: [],
     wrapped: []
   };
@@ -65,12 +71,22 @@ export default (
   });
 
   visit(markdownAST, 'html', (node: HTML) => {
-    if (isImageHtml(node)) {
+    if (isFigureHtml(node)) {
+      attributeImages.figure.push(new FigureAttributeImage(node));
+      return true;
+    }
+    if (isImgHtml(node)) {
       attributeImages.wrapped.push(new WrappedAttributeImage(node));
+      return true;
     }
   });
 
   return Promise.all([
+    new Promise(resolve =>
+      resolve(
+        attributeImages.figure.map(attributeImage => attributeImage.mdastNode)
+      )
+    ),
     new Promise(resolve =>
       resolve(
         attributeImages.root.map(attributeImage => attributeImage.mdastNode)

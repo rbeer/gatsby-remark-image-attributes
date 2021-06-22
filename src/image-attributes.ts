@@ -7,8 +7,10 @@ export default class ImageAttributes {
   attributes: Attributes = {};
   styleAttributes: Attributes = {};
   dataAttributes: Attributes = {};
+  originalTitle: string | null;
 
   constructor(node: AttributeImageNode) {
+    this.originalTitle = (node.title as string) || null;
     this.parse(node).categorizeAttributes();
     this.inline = (node.position?.start?.column || 0) > 1;
   }

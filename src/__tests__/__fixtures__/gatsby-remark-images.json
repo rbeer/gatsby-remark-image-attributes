@@ -89,5 +89,18 @@
       "dataAttributes": {},
       "inline": true
     }
+  },
+  "figure": {
+    "node": {
+      "type": "html",
+      "title": "#width=64px;title=This has a title from image attributes",
+      "url": "./gatsby-logo.png",
+      "alt": "title from attribute",
+      "position": {
+        "start": { "line": 103, "column": 1, "offset": 5243 },
+        "end": { "line": 103, "column": 102, "offset": 5344 }
+      },
+      "value": "<figureclass=\"gatsby-resp-image-figure\" style=\"\">\n    <span\nclass=\"gatsby-resp-image-wrapper\"\n      style=\"position: relative; display:block; margin-left: auto; margin-right: auto; max-width: 150px; \"\n    >\n <span\n    class=\"gatsby-resp-image-background-image\"\nstyle=\"padding-bottom: 100%; position: relative; bottom: 0; left: 0; display:block;\"\n  ></span>\n  <img\n        class=\"gatsby-resp-image-image\"\n alt=\"title from attribute\"\n        title=\"#width=64px;title=This has atitle from image attributes\"\nsrc=\"/static/7611aa2af5f5789657c9d4c68a051876/8a4e8/gatsby-logo.png\"\nsrcset=\"/static/7611aa2af5f5789657c9d4c68a051876/8a4e8/gatsby-logo.png 150w\"\n        sizes=\"(max-width: 150px) 100vw, 150px\"\n        style=\"width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;\"\n    loading=\"lazy\"\n      />\n    </span>\n    <figcaption class=\"gatsby-resp-image-figcaption\">#width=64px;title=This has a title from image attributes</figcaption>\n  </figure>"
+    }
   }
 }

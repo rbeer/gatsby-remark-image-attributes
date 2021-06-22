@@ -54,6 +54,24 @@ abstract class AttributeImage {
     return this.node;
   }
 
+  applyDataAttributes() {
+    this.node.value = (this.node.value as string).replace(
+      /<img[^>]*/,
+      `$& ${this.data}`
+    );
+    return this;
+  }
+
+  sanitizeTitle() {
+    console.log(this.attributes.originalTitle)
+    console.log(this.node.title)
+    this.node.value = (this.node.value as string).replace(
+      this.attributes.originalTitle || '',
+      (this.node.title as string) || ''
+    );
+    return this;
+  }
+
   abstract get html(): string;
 }
 export default AttributeImage;
