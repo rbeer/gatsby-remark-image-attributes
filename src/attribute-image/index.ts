@@ -2,7 +2,7 @@ import { AttributeImageNode } from '../index.d';
 
 import ImageAttributes from '../image-attributes';
 
-abstract class AttributeImage {
+class AttributeImage {
   node: AttributeImageNode;
   attributes: ImageAttributes;
 
@@ -50,6 +50,14 @@ abstract class AttributeImage {
     return this.node;
   }
 
+  get html(): string {
+    this.sanitizeTitle();
+
+    return `<img src="${this.node.url}" class="gatsby-img-attributes" style="${
+      this.style || 'width: 100%;'
+    }" alt="${this.node.alt}" title="${this.node.title || ''}"${this.data}/>`;
+  }
+
   applyDataAttributes() {
     this.node.value = (this.node.value as string).replace(
       /<img[^>]*/,
@@ -80,6 +88,9 @@ abstract class AttributeImage {
     return this;
   }
 
-  abstract get html(): string;
+  static hasAttributes(title: string): boolean {
+    return /^#(.*?)=(.*?);?/.test(title);
+  }
 }
+
 export default AttributeImage;

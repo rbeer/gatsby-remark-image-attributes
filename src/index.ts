@@ -10,10 +10,10 @@ import visit from 'unist-util-visit';
 // The nicer folder/index pattern fails with
 // TypeError: attribute_image_1.WrappedAttributeImage is not a constructor
 // - misconfiguration of TS compiler?␓
-import RootAttributeImage from './attribute-image/root';
+import AttributeImage from './attribute-image';
+import FigureAttributeImage from './attribute-image/figure';
 import WrappedAttributeImage from './attribute-image/wrapped';
 import { Node } from 'unist';
-import FigureAttributeImage from './attribute-image/figure';
 
 const options: Options = {
   styleAttributes: [],
@@ -40,12 +40,6 @@ const applyOptions = (
   options.dataAttributes = dataAttributes === true;
 };
 
-const isImgHtml = (node: AttributeImageNode) =>
-  !!node.url && /<img/.test(node.value as string);
-
-const isFigureHtml = (node: AttributeImageNode) =>
-  !!node.url && /<figure/.test(node.value as string);
-
 export default (
   { markdownAST, reporter }: { markdownAST: Node; reporter: GatsbyLogger },
   userOptions: Options
@@ -54,7 +48,7 @@ export default (
 
   const attributeImages: {
     figure: FigureAttributeImage[];
-    root: RootAttributeImage[];
+    root: AttributeImage[];
     wrapped: WrappedAttributeImage[];
   } = {
     figure: [],
@@ -64,18 +58,18 @@ export default (
 
   visit(markdownAST, 'image', (node: Image) => {
     // only process images with attributes
-    const aimg = new RootAttributeImage(node);
+    const aimg = new AttributeImage(node);
     if (aimg.attributes.length) {
       attributeImages.root.push(aimg);
     }
   });
 
   visit(markdownAST, 'html', (node: HTML) => {
-    if (isFigureHtml(node)) {
+    if (FigureAttributeImage.test(node)) {
       attributeImages.figure.push(new FigureAttributeImage(node));
       return true;
     }
-    if (isImgHtml(node)) {
+    if (WrappedAttributeImage.test(node)) {
       attributeImages.wrapped.push(new WrappedAttributeImage(node));
       return true;
     }

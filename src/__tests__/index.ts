@@ -35,14 +35,14 @@ describe('Given the userOption styleAttributes', () => {
 describe('Given mdAST Image nodes', () => {
   it('ignores images without title', async () => {
     const [, [image]] = await run('![no title](./none.png)');
-    expect(image).toBe(undefined);
+    expect(image).toBeUndefined();
   });
 
-  it('ignores titles without key=value; pairs', async () => {
+  it('ignores images without key=value; pairs', async () => {
     const [, [image]] = await run(
       "![title](./title.png '#standard syntax title')"
     );
-    expect(image).toBe(undefined);
+    expect(image).toBeUndefined();
   });
 
   it('removes attributes from the title', async () => {
@@ -83,7 +83,7 @@ describe('Given mdAST Image nodes', () => {
 describe('Given mdAST HTML nodes', () => {
   it('ignores nodes without <img>', async () => {
     const [, , [image]] = await run(gatsbyRemarkImagesFixtures.notAnImage.node);
-    expect(image).toBe(undefined);
+    expect(image).toBeUndefined();
   });
 
   describe('from gatsby-remark-images', () => {
@@ -98,13 +98,11 @@ describe('Given mdAST HTML nodes', () => {
       );
     });
 
-    it('ignores titles without key=value; pairs', async () => {
+    it('ignores images without key=value; pairs', async () => {
       const [, , [image]] = await run(
         gatsbyRemarkImagesFixtures.noAttributes.node
       );
-      expect(image.title).toEqual('No attributes, here');
-      expect(image.value).toMatch('title="No attributes, here"');
-      expect(image.value).toMatchSnapshot();
+      expect(image).toBeUndefined();
     });
 
     it('removes attributes from the title', async () => {
