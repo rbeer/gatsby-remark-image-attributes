@@ -8,8 +8,8 @@ export default class FigureAttributeImage extends AttributeImage {
   }
 
   get html(): string {
-    this.sanitizeTitle();
-    this.applyDataAttributes();
+    this.sanitizeTitle().applyDataAttributes();
+
     return `<div class="gatsby-img-attributes" style="${this.style}">${this.node.value}</div>`;
   }
 }

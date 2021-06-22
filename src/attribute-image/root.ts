@@ -8,6 +8,8 @@ export default class RootAttributeImage extends AttributeImage {
   }
 
   get html(): string {
+    this.sanitizeTitle();
+
     return `<img src="${this.node.url}" class="gatsby-img-attributes" style="${
       this.style || 'width: 100%;'
     }" alt="${this.node.alt}" title="${this.node.title || ''}"${this.data}/>`;

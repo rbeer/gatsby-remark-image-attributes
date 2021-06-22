@@ -13,7 +13,10 @@ export type Attributes = {
   [key: string]: string;
 };
 
-export type AttributeImageNode = Image | HTML;
+export type AttributeImageNode = (Image | HTML) & {
+  title?: string | null;
+  value?: string;
+};
 
 export type PluginResult = Promise<
   WrappedAttributeImage[],

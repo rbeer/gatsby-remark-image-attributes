@@ -103,6 +103,7 @@ describe('Given mdAST HTML nodes', () => {
         gatsbyRemarkImagesFixtures.noAttributes.node
       );
       expect(image.title).toEqual('No attributes, here');
+      expect(image.value).toMatch('title="No attributes, here"');
       expect(image.value).toMatchSnapshot();
     });
 
@@ -142,14 +143,20 @@ describe('Given mdAST HTML nodes', () => {
         [[figureImage]] = await run(gatsbyRemarkImagesFixtures.figure.node);
       });
 
-      it('wraps with a <div>', async () => {
+      it('wraps with a <div>', () => {
         expect(figureImage.value).toMatch(
           new RegExp(`^<div class="${CSS_CLASS}"`)
         );
         expect(figureImage.value).toMatchSnapshot();
       });
 
-      it('sanitizes the <figcaption>', async () => {
+      it('sanitizes title=""', () => {
+        expect(figureImage.value).toMatch(
+          /title="This has a title from image attributes"/
+        );
+      });
+
+      it('sanitizes the <figcaption>', () => {
         expect(figureImage.value).toMatch(
           /<figcaption.*?>This has a title from image attributes<\/figcaption>/
         );

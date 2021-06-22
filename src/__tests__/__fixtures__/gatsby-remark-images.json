@@ -25,7 +25,7 @@
         "start": { "line": 11, "column": 3, "offset": 370 },
         "end": { "line": 11, "column": 60, "offset": 427 }
       },
-      "value": "<span class=\"gatsby-resp-image-wrapper\" style=\"position: relative; display:block; margin-left: auto; margin-right: auto; max-width: 150px; \"> <span class=\"gatsby-resp-image-background-image\"style=\"padding-bottom: 100%; position: relative; bottom: 0; left: 0; display:block;\"></span><img class=\"gatsby-resp-image-image\" alt=\"no attributes\" title=\"#No attributes, here\"src=\"/static/7611aa2af5f5789657c9d4c68a051876/8a4e8/gatsby-logo.png\"srcset=\"/static/7611aa2af5f5789657c9d4c68a051876/8a4e8/gatsby-logo.png 150w\" sizes=\"(max-width: 150px) 100vw, 150px\" style=\"width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;\" loading=\"lazy\"/></span>"
+      "value": "<span class=\"gatsby-resp-image-wrapper\" style=\"position: relative; display:block; margin-left: auto; margin-right: auto; max-width: 150px; \"> <span class=\"gatsby-resp-image-background-image\"style=\"padding-bottom: 100%; position: relative; bottom: 0; left: 0; display:block;\"></span><img class=\"gatsby-resp-image-image\" alt=\"no attributes\" title=\"#No attributes, here\" src=\"/static/7611aa2af5f5789657c9d4c68a051876/8a4e8/gatsby-logo.png\"srcset=\"/static/7611aa2af5f5789657c9d4c68a051876/8a4e8/gatsby-logo.png 150w\" sizes=\"(max-width: 150px) 100vw, 150px\" style=\"width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;\" loading=\"lazy\"/></span>"
     },
     "attributes": {
       "attributes": {},
@@ -37,14 +37,14 @@
   "styleAttributes": {
     "node": {
       "type": "html",
-      "title": "#box-shadow=0px 0px 10px 2px rgb(2, 2,2);width=150px",
+      "title": "#box-shadow=0px 0px 10px 2px rgb(2, 2, 2);width=150px",
       "url": "./gatsby-logo.png",
       "alt": "test",
       "position": {
         "start": { "line": 20, "column": 1, "offset": 752 },
         "end": { "line": 20, "column": 83, "offset": 834 }
       },
-      "value": "<span      class=\"gatsby-resp-image-wrapper\"      style=\"position:relative; display: block; margin-left: auto; margin-right: auto; max-width:150px; \"    >      <spanclass=\"gatsby-resp-image-background-image\"    style=\"padding-bottom: 100%;position: relative; bottom: 0; left: 0; display: block;\"  ></span>  <img       class=\"gatsby-resp-image-image\"        alt=\"test\"title=\"#box-shadow=0px 0px 10px 2px rgb(2, 2, 2);width=150px\"src=\"/static/7611aa2af5f5789657c9d4c68a051876/8a4e8/gatsby-logo.png\"srcset=\"/static/7611aa2af5f5789657c9d4c68a051876/8a4e8/gatsby-logo.png 150w\"        sizes=\"(max-width: 150px) 100vw, 150px\"        style=\"width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;\"    loading=\"lazy\"      /></span>"
+      "value": "<span      class=\"gatsby-resp-image-wrapper\"      style=\"position:relative; display: block; margin-left: auto; margin-right: auto; max-width:150px; \"    >      <spanclass=\"gatsby-resp-image-background-image\"    style=\"padding-bottom: 100%;position: relative; bottom: 0; left: 0; display: block;\"  ></span>  <img       class=\"gatsby-resp-image-image\"        alt=\"test\" title=\"#box-shadow=0px 0px 10px 2px rgb(2, 2, 2);width=150px\"src=\"/static/7611aa2af5f5789657c9d4c68a051876/8a4e8/gatsby-logo.png\"srcset=\"/static/7611aa2af5f5789657c9d4c68a051876/8a4e8/gatsby-logo.png 150w\"        sizes=\"(max-width: 150px) 100vw, 150px\"        style=\"width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;\"    loading=\"lazy\"      /></span>"
     },
     "attributes": {
       "attributes": {
@@ -100,7 +100,7 @@
         "start": { "line": 103, "column": 1, "offset": 5243 },
         "end": { "line": 103, "column": 102, "offset": 5344 }
       },
-      "value": "<figureclass=\"gatsby-resp-image-figure\" style=\"\">\n    <span\nclass=\"gatsby-resp-image-wrapper\"\n      style=\"position: relative; display:block; margin-left: auto; margin-right: auto; max-width: 150px; \"\n    >\n <span\n    class=\"gatsby-resp-image-background-image\"\nstyle=\"padding-bottom: 100%; position: relative; bottom: 0; left: 0; display:block;\"\n  ></span>\n  <img\n        class=\"gatsby-resp-image-image\"\n alt=\"title from attribute\"\n        title=\"#width=64px;title=This has atitle from image attributes\"\nsrc=\"/static/7611aa2af5f5789657c9d4c68a051876/8a4e8/gatsby-logo.png\"\nsrcset=\"/static/7611aa2af5f5789657c9d4c68a051876/8a4e8/gatsby-logo.png 150w\"\n        sizes=\"(max-width: 150px) 100vw, 150px\"\n        style=\"width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;\"\n    loading=\"lazy\"\n      />\n    </span>\n    <figcaption class=\"gatsby-resp-image-figcaption\">#width=64px;title=This has a title from image attributes</figcaption>\n  </figure>"
+      "value": "<figure class=\"gatsby-resp-image-figure\" style=\"\">\n    <span\nclass=\"gatsby-resp-image-wrapper\"\n      style=\"position: relative; display:block; margin-left: auto; margin-right: auto; max-width: 150px; \"\n    >\n <span\n    class=\"gatsby-resp-image-background-image\"\nstyle=\"padding-bottom: 100%; position: relative; bottom: 0; left: 0; display:block;\"\n  ></span>\n  <img\n        class=\"gatsby-resp-image-image\"\n alt=\"title from attribute\"\n        title=\"#width=64px;title=This has a title from image attributes\"\nsrc=\"/static/7611aa2af5f5789657c9d4c68a051876/8a4e8/gatsby-logo.png\"\nsrcset=\"/static/7611aa2af5f5789657c9d4c68a051876/8a4e8/gatsby-logo.png 150w\"\n        sizes=\"(max-width: 150px) 100vw, 150px\"\n        style=\"width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;\"\n    loading=\"lazy\"\n      />\n    </span>\n    <figcaption class=\"gatsby-resp-image-figcaption\">#width=64px;title=This has a title from image attributes</figcaption>\n  </figure>"
     }
   }
 }

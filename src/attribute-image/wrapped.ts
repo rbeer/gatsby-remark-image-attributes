@@ -8,12 +8,10 @@ export default class WrappedAttributeImage extends AttributeImage {
   }
 
   get html(): string {
-    const value: string = (this.node.value as string)
-      .replace(/<img[^>]*/, `$& ${this.data}`)
-      .replace(/title=".*?"/, `title="${this.node.title || ''}"`);
+    this.sanitizeTitle().applyDataAttributes();
 
     return `<span class="gatsby-img-attributes" style="display:${
       this.attributes.inline ? 'inline-block' : 'block'
-    }; ${this.style}">${value}</span>`;
+    }; ${this.style}">${this.node.value}</span>`;
   }
 }

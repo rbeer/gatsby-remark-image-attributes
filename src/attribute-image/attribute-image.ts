@@ -45,10 +45,6 @@ abstract class AttributeImage {
   }
 
   get mdastNode() {
-    this.node.title = this.attributes.dataAttributes.title || this.node.title;
-    if (this.attributes.length && (this.node.title as string).startsWith('#')) {
-      this.node.title = null;
-    }
     this.node.type = 'html';
     this.node.value = this.html;
     return this.node;
@@ -63,12 +59,24 @@ abstract class AttributeImage {
   }
 
   sanitizeTitle() {
-    console.log(this.attributes.originalTitle)
-    console.log(this.node.title)
-    this.node.value = (this.node.value as string).replace(
-      this.attributes.originalTitle || '',
-      (this.node.title as string) || ''
-    );
+    this.node.title = this.attributes.dataAttributes.title || this.node.title;
+    if (this.attributes.length && (this.node.title as string).startsWith('#')) {
+      this.node.title = null;
+    }
+
+    if (this.node.value && this.attributes.originalTitle) {
+      const rx = new RegExp(
+        `#?${this.attributes.originalTitle.replace(
+          /[\/\\^$*+?.()|[\]{}]/g,
+          '\\$&'
+        )}`,
+        'g'
+      );
+      this.node.value = (this.node.value as string).replace(
+        rx,
+        this.node.title || ''
+      );
+    }
     return this;
   }
 
