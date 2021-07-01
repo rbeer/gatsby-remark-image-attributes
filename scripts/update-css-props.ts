@@ -1,5 +1,10 @@
 #!/usr/bin/env ts-node
 
+// Exits with codes:
+// 0: New properties found and downloaded; ./src/css-props.json changed
+// 1: Some error occured
+// 2: No new properties found; ./src/css-props.json is the same
+
 import { get, request } from 'https';
 import { resolve } from 'path';
 import { writeFileSync, readFileSync } from 'fs';
@@ -25,7 +30,7 @@ const download = (lastModified: Date) => {
     console.log(`last update: ${lastUpdated.toUTCString()}`);
     console.log(`last-modified: ${lastModified.toUTCString()}`);
     clearTimeout(timeout);
-    process.exit();
+    process.exit(2);
   }
 
   console.info(`Requesting ${w3cPropsUrl}`);

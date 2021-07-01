@@ -43,8 +43,6 @@
     "covdev": "npm run dev -- --coverage",
     "dev": "jest --watch -c jest.config.ts",
     "prepublishOnly": "./scripts/prepublish.sh",
-    "postpublish": "npm run stats",
-    "stats": "npx howfat -r tree gatsby-remark-image-attributes@latest",
     "test": "jest -c jest.config.ts",
     "update-css-props": "ts-node ./scripts/update-css-props.ts"
   },
