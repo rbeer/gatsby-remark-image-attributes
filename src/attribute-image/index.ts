@@ -21,8 +21,8 @@ class AttributeImage {
     return Object.keys(this.attributes.dataAttributes).reduce(
       (value, key) =>
         key !== 'title'
-          ? `${value} data-${key}="${this.attributes.dataAttributes[key]}"`
-          : '',
+        ? `${value} data-${key}="${this.attributes.dataAttributes[key]}"`
+        : value,
       ''
     );
   }
