@@ -1,7 +1,7 @@
 # gatsby-remark-image-attributes
-![Gatsby 2/3 compatible](https://badgen.net/badge/Gatsby%202%20%26%203/%E2%9C%93/green) ![npm](https://badgen.net/npm/v/gatsby-remark-image-attributes/dev) ![dependencies](https://badgen.net/bundlephobia/dependency-count/gatsby-remark-image-attributes@dev) ![minified](https://badgen.net/bundlephobia/min/gatsby-remark-image-attributes@dev) ![minified+gzip](https://badgen.net/bundlephobia/minzip/gatsby-remark-image-attributes@dev)
-
 Creates HTML image markup with style and data-* attributes from [`mdAST Image`](https://github.com/syntax-tree/mdast#image) nodes with attributes in their title.
+
+![Gatsby 2/3 compatible](https://badgen.net/badge/Gatsby%202%20%26%203/%E2%9C%93/green) ![npm](https://badgen.net/npm/v/gatsby-remark-image-attributes/dev) ![dependencies](https://badgen.net/bundlephobia/dependency-count/gatsby-remark-image-attributes@dev) ![minified](https://badgen.net/bundlephobia/min/gatsby-remark-image-attributes@dev) ![minified+gzip](https://badgen.net/bundlephobia/minzip/gatsby-remark-image-attributes@dev)
 
 ```md
                                                  ┌─────────── styleAttributes ───────────┐          reserved for image title
