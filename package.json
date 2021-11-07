@@ -31,7 +31,7 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "gatsby": "^2.24.50 || ^3.0.0"
+    "gatsby": "^2.24.50 || ^3.0.0 || ^4.0.0"
   },
   "repository": {
     "type": "git",
@@ -54,6 +54,7 @@
     "LICENSE.md",
     "yarn.lock",
     "package.json",
-    "dist/"
+    "dist/",
+    "index.js"
   ]
 }
